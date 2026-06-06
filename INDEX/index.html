@@ -1,0 +1,2398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NEXLIX DIGITAL — Websites That Grow Businesses</title>
+<meta name="description" content="We build fast, mobile-friendly and conversion-focused websites that help businesses grow online. Professional web design agency.">
+<meta name="keywords" content="web design, website development, business websites, restaurant websites, fashion websites, India">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #050507;
+    --bg2: #0a0a10;
+    --bg3: #0f0f18;
+    --surface: rgba(255,255,255,0.04);
+    --surface2: rgba(255,255,255,0.07);
+    --border: rgba(255,255,255,0.08);
+    --border2: rgba(255,255,255,0.14);
+    --p1: #7c3aed;
+    --p2: #4f46e5;
+    --p3: #2563eb;
+    --accent: #a78bfa;
+    --accent2: #818cf8;
+    --text: #f1f0f5;
+    --text2: #9d9bb0;
+    --text3: #6b6880;
+    --grad: linear-gradient(135deg, #7c3aed, #4f46e5, #2563eb);
+    --grad2: linear-gradient(135deg, #a78bfa, #818cf8, #60a5fa);
+    --glow: 0 0 60px rgba(124,58,237,0.25);
+    --glow2: 0 0 30px rgba(124,58,237,0.15);
+    --r: 16px;
+    --r2: 24px;
+    --transition: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+    line-height: 1.6;
+  }
+
+  /* ---- NOISE TEXTURE OVERLAY ---- */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.4;
+  }
+
+  /* ---- SCROLLBAR ---- */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--p1); border-radius: 4px; }
+
+  /* ---- TYPOGRAPHY ---- */
+  h1, h2, h3, h4, h5 { font-family: 'Syne', sans-serif; letter-spacing: -0.02em; line-height: 1.1; }
+
+  .grad-text {
+    background: var(--grad2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* ---- LAYOUT ---- */
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+  section { position: relative; }
+
+  /* ---- AMBIENT ORBS ---- */
+  .orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    pointer-events: none;
+    animation: orbFloat 8s ease-in-out infinite alternate;
+  }
+  @keyframes orbFloat {
+    from { transform: translate(0, 0) scale(1); }
+    to { transform: translate(20px, -20px) scale(1.05); }
+  }
+
+  /* ---- NAV ---- */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    padding: 0 24px;
+    transition: background 0.4s var(--transition), box-shadow 0.4s var(--transition);
+  }
+
+  nav.scrolled {
+    background: rgba(5,5,7,0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 1px 0 var(--border);
+  }
+
+  .nav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+
+  .logo-icon {
+    width: 38px;
+    height: 38px;
+    background: var(--grad);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 15px;
+    color: #fff;
+    letter-spacing: -1px;
+    box-shadow: 0 4px 20px rgba(124,58,237,0.4);
+  }
+
+  .logo-text {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 17px;
+    color: var(--text);
+    letter-spacing: 0.04em;
+  }
+
+  .logo-text span { background: var(--grad2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--text2);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 8px;
+    transition: color 0.2s, background 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--text); background: var(--surface2); }
+
+  .nav-cta {
+    background: var(--grad) !important;
+    color: #fff !important;
+    font-weight: 600 !important;
+    box-shadow: 0 4px 16px rgba(124,58,237,0.35) !important;
+  }
+
+  .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 6px 24px rgba(124,58,237,0.5) !important; }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 8px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: var(--text);
+    border-radius: 2px;
+    transition: 0.3s;
+  }
+
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 72px; left: 0; right: 0;
+    background: rgba(5,5,7,0.97);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    padding: 16px 24px 24px;
+    z-index: 999;
+  }
+
+  .mobile-menu.open { display: block; animation: slideDown 0.3s var(--transition); }
+
+  @keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+
+  .mobile-menu a {
+    display: block;
+    color: var(--text2);
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+    transition: color 0.2s;
+  }
+
+  .mobile-menu a:hover { color: var(--text); }
+
+  .mobile-menu a.mcta {
+    color: var(--accent);
+    border-bottom: none;
+    margin-top: 8px;
+  }
+
+  /* ---- HERO ---- */
+  #hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 120px 0 80px;
+    overflow: hidden;
+  }
+
+  .hero-orb1 { width: 600px; height: 600px; background: rgba(124,58,237,0.12); top: -100px; right: -200px; animation-delay: 0s; }
+  .hero-orb2 { width: 400px; height: 400px; background: rgba(37,99,235,0.1); bottom: 0; left: -100px; animation-delay: 3s; }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(124,58,237,0.12);
+    border: 1px solid rgba(124,58,237,0.3);
+    border-radius: 100px;
+    padding: 6px 14px 6px 8px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    animation: fadeUp 0.6s var(--transition) both;
+  }
+
+  .hero-badge-dot {
+    width: 20px;
+    height: 20px;
+    background: var(--grad);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 9px;
+  }
+
+  .hero-badge-dot::after {
+    content: '✦';
+    color: #fff;
+  }
+
+  .hero-h1 {
+    font-size: clamp(36px, 5vw, 64px);
+    font-weight: 800;
+    line-height: 1.05;
+    margin-bottom: 24px;
+    animation: fadeUp 0.6s var(--transition) 0.1s both;
+  }
+
+  .hero-h1 em { font-style: normal; position: relative; }
+
+  .hero-h1 em::after {
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--grad);
+    border-radius: 3px;
+  }
+
+  .hero-sub {
+    font-size: 18px;
+    color: var(--text2);
+    line-height: 1.7;
+    max-width: 480px;
+    margin-bottom: 36px;
+    animation: fadeUp 0.6s var(--transition) 0.2s both;
+  }
+
+  .hero-btns {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    animation: fadeUp 0.6s var(--transition) 0.3s both;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--grad);
+    color: #fff;
+    font-weight: 600;
+    font-size: 15px;
+    padding: 14px 28px;
+    border-radius: 12px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 24px rgba(124,58,237,0.4);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-primary::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(255,255,255,0.1);
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(124,58,237,0.5); }
+  .btn-primary:hover::before { opacity: 1; }
+
+  .btn-wa {
+    background: linear-gradient(135deg, #25d366, #128c7e) !important;
+    box-shadow: 0 4px 24px rgba(37,211,102,0.3) !important;
+  }
+
+  .btn-wa:hover { box-shadow: 0 8px 32px rgba(37,211,102,0.45) !important; }
+
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--surface);
+    color: var(--text);
+    font-weight: 600;
+    font-size: 15px;
+    padding: 14px 28px;
+    border-radius: 12px;
+    text-decoration: none;
+    border: 1px solid var(--border2);
+    cursor: pointer;
+    transition: transform 0.2s, background 0.2s, border-color 0.2s;
+  }
+
+  .btn-outline:hover { transform: translateY(-2px); background: var(--surface2); border-color: rgba(124,58,237,0.4); }
+
+  .hero-trust {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 36px;
+    animation: fadeUp 0.6s var(--transition) 0.4s both;
+  }
+
+  .trust-badge {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: var(--text2);
+    font-weight: 500;
+  }
+
+  .trust-badge .icon {
+    width: 28px;
+    height: 28px;
+    background: var(--surface2);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    border: 1px solid var(--border);
+  }
+
+  /* ---- HERO VISUAL ---- */
+  .hero-visual {
+    position: relative;
+    animation: fadeUp 0.8s var(--transition) 0.2s both;
+  }
+
+  .mockup-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1/0.75;
+  }
+
+  .mockup-main {
+    position: absolute;
+    top: 0; left: 0; right: 10%;
+    background: var(--bg3);
+    border: 1px solid var(--border2);
+    border-radius: var(--r2);
+    overflow: hidden;
+    box-shadow: 0 32px 80px rgba(0,0,0,0.6), var(--glow);
+    animation: floatMain 5s ease-in-out infinite alternate;
+  }
+
+  @keyframes floatMain { from { transform: translateY(0); } to { transform: translateY(-12px); } }
+
+  .mockup-bar {
+    background: rgba(255,255,255,0.05);
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .dot { width: 8px; height: 8px; border-radius: 50%; }
+  .dot.r { background: #ff5f57; }
+  .dot.y { background: #febc2e; }
+  .dot.g { background: #28c840; }
+
+  .url-bar {
+    flex: 1;
+    background: rgba(255,255,255,0.06);
+    border-radius: 6px;
+    padding: 4px 10px;
+    font-size: 11px;
+    color: var(--text3);
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .mockup-content { padding: 20px; }
+
+  .mc-hero {
+    background: var(--grad);
+    border-radius: 12px;
+    padding: 24px 20px;
+    margin-bottom: 12px;
+    text-align: center;
+  }
+
+  .mc-hero-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 6px;
+  }
+
+  .mc-hero-sub { font-size: 11px; color: rgba(255,255,255,0.75); }
+
+  .mc-btn-row { display: flex; gap: 6px; margin-top: 12px; justify-content: center; }
+
+  .mc-btn {
+    background: rgba(255,255,255,0.2);
+    border-radius: 6px;
+    padding: 5px 10px;
+    font-size: 10px;
+    color: #fff;
+    font-weight: 600;
+    backdrop-filter: blur(4px);
+  }
+
+  .mc-cards { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
+
+  .mc-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 8px;
+    text-align: center;
+    font-size: 10px;
+    color: var(--text2);
+  }
+
+  .mc-card-icon { font-size: 18px; margin-bottom: 4px; }
+
+  .mockup-secondary {
+    position: absolute;
+    right: 0;
+    bottom: -20px;
+    width: 42%;
+    background: var(--bg3);
+    border: 1px solid var(--border2);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 30px rgba(79,70,229,0.2);
+    animation: floatSec 5s ease-in-out infinite alternate;
+    animation-delay: 1s;
+  }
+
+  @keyframes floatSec { from { transform: translateY(0) rotate(2deg); } to { transform: translateY(-8px) rotate(2deg); } }
+
+  .ms-inner {
+    padding: 14px;
+  }
+
+  .ms-head {
+    font-family: 'Syne', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .ms-stat { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+  .ms-label { font-size: 10px; color: var(--text3); }
+  .ms-val { font-size: 12px; font-weight: 700; color: var(--text); }
+
+  .ms-bar-track {
+    height: 4px;
+    background: var(--surface2);
+    border-radius: 2px;
+    margin-bottom: 6px;
+    overflow: hidden;
+  }
+
+  .ms-bar-fill {
+    height: 100%;
+    border-radius: 2px;
+    background: var(--grad);
+  }
+
+  .floating-chip {
+    position: absolute;
+    background: rgba(10,10,16,0.9);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--border2);
+    border-radius: 100px;
+    padding: 8px 14px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text);
+    white-space: nowrap;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+  }
+
+  .chip1 { top: 10px; right: -10px; animation: chipFloat1 4s ease-in-out infinite alternate; }
+  .chip2 { bottom: 30px; left: -10px; animation: chipFloat2 4s ease-in-out infinite alternate; animation-delay: 1.5s; }
+
+  @keyframes chipFloat1 { from { transform: translateY(0); } to { transform: translateY(-8px); } }
+  @keyframes chipFloat2 { from { transform: translateY(0) rotate(-3deg); } to { transform: translateY(6px) rotate(-3deg); } }
+
+  /* ---- STATS BAR ---- */
+  .stats-bar {
+    padding: 40px 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: var(--bg2);
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+  }
+
+  .stat-item {
+    text-align: center;
+    padding: 20px;
+    border-right: 1px solid var(--border);
+  }
+
+  .stat-item:last-child { border-right: none; }
+
+  .stat-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 42px;
+    font-weight: 800;
+    background: var(--grad2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .stat-label { font-size: 14px; color: var(--text2); font-weight: 500; }
+
+  /* ---- SECTION HEADERS ---- */
+  .section-header { text-align: center; margin-bottom: 64px; }
+
+  .section-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    background: rgba(124,58,237,0.1);
+    border: 1px solid rgba(124,58,237,0.25);
+    border-radius: 100px;
+    padding: 5px 14px;
+    margin-bottom: 20px;
+  }
+
+  .section-eyebrow::before { content: '◈'; font-size: 10px; }
+
+  .section-title {
+    font-size: clamp(28px, 4vw, 48px);
+    font-weight: 800;
+    margin-bottom: 16px;
+  }
+
+  .section-sub {
+    font-size: 17px;
+    color: var(--text2);
+    max-width: 580px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  /* ---- ABOUT ---- */
+  #about {
+    padding: 100px 0;
+    background: var(--bg);
+    overflow: hidden;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .about-content .section-title { text-align: left; }
+  .about-content .section-eyebrow { }
+
+  .about-text {
+    font-size: 17px;
+    color: var(--text2);
+    line-height: 1.8;
+    margin-bottom: 36px;
+  }
+
+  .about-features {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .af-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 18px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    transition: border-color 0.2s, background 0.2s, transform 0.2s;
+    cursor: default;
+  }
+
+  .af-item:hover {
+    border-color: rgba(124,58,237,0.35);
+    background: rgba(124,58,237,0.06);
+    transform: translateX(4px);
+  }
+
+  .af-icon {
+    width: 38px;
+    height: 38px;
+    background: var(--grad);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+    box-shadow: 0 4px 16px rgba(124,58,237,0.3);
+  }
+
+  .af-text { font-size: 15px; font-weight: 500; color: var(--text); }
+
+  .about-visual {
+    position: relative;
+  }
+
+  .av-card-main {
+    background: var(--bg3);
+    border: 1px solid var(--border2);
+    border-radius: var(--r2);
+    padding: 32px;
+    box-shadow: var(--glow);
+    position: relative;
+    z-index: 1;
+  }
+
+  .av-logo {
+    width: 56px;
+    height: 56px;
+    background: var(--grad);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 18px;
+    color: #fff;
+    margin-bottom: 20px;
+    box-shadow: 0 8px 32px rgba(124,58,237,0.4);
+  }
+
+  .av-name {
+    font-family: 'Syne', sans-serif;
+    font-size: 24px;
+    font-weight: 800;
+    margin-bottom: 6px;
+  }
+
+  .av-tagline { font-size: 14px; color: var(--accent); margin-bottom: 24px; }
+
+  .av-divider { height: 1px; background: var(--border); margin: 24px 0; }
+
+  .av-stats { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+
+  .avs-item { text-align: center; }
+  .avs-num { font-family: 'Syne', sans-serif; font-size: 28px; font-weight: 800; background: var(--grad2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .avs-label { font-size: 12px; color: var(--text3); margin-top: 2px; }
+
+  .av-tech-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 24px;
+  }
+
+  .tech-tag {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 5px 10px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text2);
+  }
+
+  .av-card-accent {
+    position: absolute;
+    top: -12px;
+    right: -12px;
+    background: rgba(124,58,237,0.12);
+    border: 1px solid rgba(124,58,237,0.25);
+    border-radius: 14px;
+    padding: 14px 18px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--accent);
+    backdrop-filter: blur(8px);
+    z-index: 2;
+    animation: floatMain 6s ease-in-out infinite alternate;
+  }
+
+  /* ---- PORTFOLIO ---- */
+  #portfolio {
+    padding: 100px 0;
+    background: var(--bg2);
+    overflow: hidden;
+  }
+
+  .portfolio-filters {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 48px;
+  }
+
+  .filter-btn {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 8px 20px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text2);
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .filter-btn:hover, .filter-btn.active {
+    background: rgba(124,58,237,0.15);
+    border-color: rgba(124,58,237,0.4);
+    color: var(--accent);
+  }
+
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .project-card {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: var(--r2);
+    overflow: hidden;
+    transition: transform 0.3s var(--transition), border-color 0.3s, box-shadow 0.3s;
+    cursor: default;
+  }
+
+  .project-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(124,58,237,0.35);
+    box-shadow: 0 24px 60px rgba(0,0,0,0.4), var(--glow2);
+  }
+
+  .project-preview {
+    position: relative;
+    height: 240px;
+    overflow: hidden;
+    background: #08080f;
+  }
+
+  /* iframe screenshot approach */
+  .project-preview iframe {
+    width: 160%;
+    height: 160%;
+    border: none;
+    transform: scale(0.625);
+    transform-origin: top left;
+    pointer-events: none;
+    display: block;
+  }
+
+  /* SVG mockup fallback */
+  .project-preview-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .pp-bg {
+    position: absolute;
+    inset: 0;
+    opacity: 1;
+  }
+
+  .pp-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, var(--bg3) 0%, transparent 60%);
+    z-index: 2;
+  }
+
+  /* Screenshot via microlink/screenshot service */
+  .project-screenshot {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    display: block;
+    transition: transform 0.5s var(--transition);
+  }
+
+  .project-card:hover .project-screenshot { transform: scale(1.04); }
+
+  .project-preview-svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  .project-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    z-index: 3;
+    background: rgba(10,10,16,0.8);
+    border: 1px solid var(--border2);
+    border-radius: 6px;
+    padding: 4px 10px;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text2);
+    backdrop-filter: blur(8px);
+  }
+
+  .project-live-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    z-index: 3;
+    background: var(--grad);
+    border-radius: 8px;
+    padding: 6px 12px;
+    font-size: 11px;
+    font-weight: 600;
+    color: #fff;
+    text-decoration: none;
+    opacity: 0;
+    transform: translateY(-4px);
+    transition: opacity 0.2s, transform 0.2s;
+    box-shadow: 0 4px 16px rgba(124,58,237,0.4);
+  }
+
+  .project-card:hover .project-live-btn { opacity: 1; transform: translateY(0); }
+
+  .project-info { padding: 24px; }
+
+  .project-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  .project-desc { font-size: 14px; color: var(--text2); line-height: 1.6; margin-bottom: 16px; }
+
+  .project-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
+
+  .ptag {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    padding: 3px 8px;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--text3);
+  }
+
+  .project-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+  }
+
+  .project-footer a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--accent);
+    text-decoration: none;
+    transition: gap 0.2s;
+  }
+
+  .project-footer a:hover { gap: 10px; }
+
+  /* ---- SERVICES ---- */
+  #services {
+    padding: 100px 0;
+    background: var(--bg);
+    overflow: hidden;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+
+  .service-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--r);
+    padding: 28px 24px;
+    transition: transform 0.3s var(--transition), border-color 0.3s, background 0.3s;
+    cursor: default;
+    text-align: center;
+  }
+
+  .service-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(124,58,237,0.35);
+    background: rgba(124,58,237,0.05);
+  }
+
+  .sc-icon {
+    width: 54px;
+    height: 54px;
+    background: var(--grad);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    margin: 0 auto 16px;
+    box-shadow: 0 6px 20px rgba(124,58,237,0.35);
+    transition: box-shadow 0.3s, transform 0.3s;
+  }
+
+  .service-card:hover .sc-icon { box-shadow: 0 8px 28px rgba(124,58,237,0.5); transform: scale(1.05); }
+
+  .sc-title { font-family: 'Syne', sans-serif; font-size: 15px; font-weight: 700; margin-bottom: 8px; }
+  .sc-desc { font-size: 13px; color: var(--text2); line-height: 1.6; }
+
+  /* ---- PRICING ---- */
+  #pricing {
+    padding: 100px 0;
+    background: var(--bg2);
+    overflow: hidden;
+  }
+
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    align-items: stretch;
+  }
+
+  .pricing-card {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: var(--r2);
+    padding: 36px 32px;
+    position: relative;
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .pricing-card:hover { transform: translateY(-4px); }
+
+  .pricing-card.featured {
+    border-color: rgba(124,58,237,0.5);
+    background: linear-gradient(160deg, rgba(124,58,237,0.08) 0%, var(--bg3) 100%);
+    box-shadow: 0 0 0 1px rgba(124,58,237,0.2), var(--glow);
+    transform: scale(1.03);
+  }
+
+  .pricing-card.featured:hover { transform: scale(1.03) translateY(-4px); }
+
+  .popular-badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--grad);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 4px 16px;
+    border-radius: 100px;
+    white-space: nowrap;
+    box-shadow: 0 4px 16px rgba(124,58,237,0.4);
+  }
+
+  .pricing-tier {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text3);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 12px;
+  }
+
+  .pricing-price {
+    font-family: 'Syne', sans-serif;
+    font-size: 52px;
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .pricing-price sup { font-size: 22px; vertical-align: top; margin-top: 12px; display: inline-block; }
+
+  .pricing-card.featured .pricing-price { background: var(--grad2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+  .pricing-delivery { font-size: 13px; color: var(--text3); margin-bottom: 28px; }
+
+  .pricing-divider { height: 1px; background: var(--border); margin-bottom: 28px; }
+
+  .pricing-features { list-style: none; display: flex; flex-direction: column; gap: 12px; flex: 1; }
+
+  .pricing-features li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 14px;
+    color: var(--text2);
+  }
+
+  .pf-check {
+    width: 18px;
+    height: 18px;
+    background: rgba(124,58,237,0.15);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+    font-size: 10px;
+    color: var(--accent);
+  }
+
+  .pricing-cta {
+    margin-top: 32px;
+    display: block;
+    text-align: center;
+    padding: 14px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 15px;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .pricing-card:not(.featured) .pricing-cta {
+    background: var(--surface2);
+    border: 1px solid var(--border2);
+    color: var(--text);
+  }
+
+  .pricing-card:not(.featured) .pricing-cta:hover { background: var(--surface); border-color: rgba(124,58,237,0.35); transform: translateY(-1px); }
+
+  .pricing-card.featured .pricing-cta {
+    background: var(--grad);
+    color: #fff;
+    box-shadow: 0 6px 24px rgba(124,58,237,0.4);
+  }
+
+  .pricing-card.featured .pricing-cta:hover { transform: translateY(-2px); box-shadow: 0 10px 32px rgba(124,58,237,0.55); }
+
+  /* ---- TESTIMONIALS ---- */
+  #testimonials {
+    padding: 100px 0;
+    background: var(--bg);
+    overflow: hidden;
+  }
+
+  .testi-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .testi-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--r2);
+    padding: 28px;
+    transition: transform 0.3s, border-color 0.3s;
+  }
+
+  .testi-card:hover { transform: translateY(-4px); border-color: rgba(124,58,237,0.3); }
+
+  .testi-stars { display: flex; gap: 3px; margin-bottom: 16px; }
+  .testi-stars span { color: #fbbf24; font-size: 14px; }
+
+  .testi-text { font-size: 15px; color: var(--text2); line-height: 1.7; margin-bottom: 20px; font-style: italic; }
+
+  .testi-author { display: flex; align-items: center; gap: 12px; }
+
+  .testi-avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    color: #fff;
+    flex-shrink: 0;
+  }
+
+  .testi-name { font-weight: 600; font-size: 15px; }
+  .testi-role { font-size: 12px; color: var(--text3); }
+
+  /* ---- CONTACT ---- */
+  #contact {
+    padding: 100px 0;
+    background: var(--bg2);
+    overflow: hidden;
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+  }
+
+  .contact-info .section-title { text-align: left; font-size: 36px; margin-bottom: 16px; }
+  .contact-info .section-sub { text-align: left; margin: 0 0 36px; }
+
+  .contact-channels { display: flex; flex-direction: column; gap: 14px; }
+
+  .cc-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 20px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--r);
+    text-decoration: none;
+    color: var(--text);
+    transition: border-color 0.2s, background 0.2s, transform 0.2s;
+  }
+
+  .cc-item:hover { border-color: rgba(124,58,237,0.35); background: rgba(124,58,237,0.05); transform: translateX(4px); }
+
+  .cc-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+
+  .cc-label { font-size: 12px; color: var(--text3); margin-bottom: 2px; }
+  .cc-val { font-size: 15px; font-weight: 600; }
+
+  .wa-cta-big {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background: linear-gradient(135deg, #25d366, #128c7e);
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+    padding: 20px 32px;
+    border-radius: 16px;
+    text-decoration: none;
+    margin-top: 32px;
+    box-shadow: 0 8px 32px rgba(37,211,102,0.35);
+    transition: transform 0.2s, box-shadow 0.2s;
+    font-family: 'Syne', sans-serif;
+  }
+
+  .wa-cta-big:hover { transform: translateY(-3px); box-shadow: 0 14px 40px rgba(37,211,102,0.45); }
+
+  .contact-form-wrap {
+    background: var(--bg3);
+    border: 1px solid var(--border2);
+    border-radius: var(--r2);
+    padding: 36px;
+  }
+
+  .form-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 24px;
+  }
+
+  .form-group { margin-bottom: 18px; }
+
+  .form-label { display: block; font-size: 13px; font-weight: 600; color: var(--text2); margin-bottom: 8px; }
+
+  .form-input, .form-textarea, .form-select {
+    width: 100%;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 12px 16px;
+    font-size: 15px;
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    transition: border-color 0.2s, background 0.2s;
+    outline: none;
+  }
+
+  .form-input:focus, .form-textarea:focus, .form-select:focus { border-color: rgba(124,58,237,0.5); background: rgba(124,58,237,0.04); }
+
+  .form-input::placeholder, .form-textarea::placeholder { color: var(--text3); }
+  .form-textarea { resize: vertical; min-height: 100px; }
+  .form-select option { background: var(--bg3); }
+
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+  .form-submit {
+    width: 100%;
+    background: var(--grad);
+    color: #fff;
+    font-weight: 700;
+    font-size: 16px;
+    padding: 15px;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    font-family: 'Syne', sans-serif;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 20px rgba(124,58,237,0.4);
+  }
+
+  .form-submit:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(124,58,237,0.55); }
+
+  /* ---- FOOTER ---- */
+  footer {
+    background: var(--bg);
+    border-top: 1px solid var(--border);
+    padding: 60px 0 32px;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 60px;
+    margin-bottom: 48px;
+  }
+
+  .footer-brand .logo-text { font-size: 20px; }
+  .footer-tagline { font-size: 14px; color: var(--text3); margin-top: 8px; margin-bottom: 20px; }
+
+  .footer-social { display: flex; gap: 10px; }
+
+  .social-btn {
+    width: 38px;
+    height: 38px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background 0.2s, border-color 0.2s, transform 0.2s;
+  }
+
+  .social-btn:hover { background: rgba(124,58,237,0.15); border-color: rgba(124,58,237,0.4); transform: translateY(-2px); }
+
+  .footer-col-title { font-family: 'Syne', sans-serif; font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.06em; }
+
+  .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .footer-links a { font-size: 14px; color: var(--text2); text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--accent); }
+
+  .footer-bottom {
+    border-top: 1px solid var(--border);
+    padding-top: 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .footer-copy { font-size: 13px; color: var(--text3); }
+  .footer-copy span { color: var(--accent); }
+
+  /* ---- ANIMATIONS ---- */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.7s var(--transition), transform 0.7s var(--transition);
+  }
+
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+
+  /* ---- RESPONSIVE ---- */
+  @media (max-width: 1024px) {
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
+    .testi-grid { grid-template-columns: 1fr 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+  }
+
+  @media (max-width: 768px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+    .hero-visual { display: none; }
+    .about-grid { grid-template-columns: 1fr; }
+    .about-visual { display: none; }
+    .portfolio-grid { grid-template-columns: 1fr; }
+    .pricing-grid { grid-template-columns: 1fr; }
+    .pricing-card.featured { transform: none; }
+    .testi-grid { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .stat-item:nth-child(2) { border-right: none; }
+    .stat-item:nth-child(3) { border-right: 1px solid var(--border); }
+    .stat-item:nth-child(3), .stat-item:nth-child(4) { border-top: 1px solid var(--border); }
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    .form-row { grid-template-columns: 1fr; }
+    .footer-bottom { flex-direction: column; text-align: center; }
+  }
+
+  @media (max-width: 480px) {
+    .services-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .hero-btns { flex-direction: column; }
+    .hero-btns .btn-primary, .hero-btns .btn-outline { text-align: center; justify-content: center; }
+    .pricing-grid { gap: 16px; }
+  }
+
+  /* ---- LOADING SCREEN ---- */
+  #loading-screen {
+    position: fixed;
+    inset: 0;
+    background: var(--bg);
+    z-index: 99999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.5s, visibility 0.5s;
+  }
+
+  #loading-screen.done { opacity: 0; visibility: hidden; }
+
+  .loader-logo {
+    font-family: 'Syne', sans-serif;
+    font-size: 28px;
+    font-weight: 800;
+    background: var(--grad2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 24px;
+    letter-spacing: 0.04em;
+  }
+
+  .loader-bar {
+    width: 200px;
+    height: 3px;
+    background: var(--surface2);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  .loader-fill {
+    height: 100%;
+    background: var(--grad);
+    border-radius: 3px;
+    animation: loadFill 1.4s var(--transition) forwards;
+  }
+
+  @keyframes loadFill { from { width: 0%; } to { width: 100%; } }
+
+  /* ---- SCROLL TO TOP ---- */
+  #scroll-top {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 44px;
+    height: 44px;
+    background: var(--grad);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s, transform 0.3s;
+    box-shadow: 0 4px 20px rgba(124,58,237,0.4);
+    z-index: 100;
+    font-size: 18px;
+    border: none;
+    color: #fff;
+  }
+
+  #scroll-top.visible { opacity: 1; pointer-events: all; }
+  #scroll-top:hover { transform: translateY(-3px); }
+
+</style>
+</head>
+<body>
+
+<!-- Loading Screen -->
+<div id="loading-screen">
+  <div class="loader-logo">NEXLIX DIGITAL</div>
+  <div class="loader-bar"><div class="loader-fill"></div></div>
+</div>
+
+<!-- Scroll to Top -->
+<button id="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="#hero" class="logo">
+      <div class="logo-icon">NX</div>
+      <span class="logo-text">NEXLIX <span>DIGITAL</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="https://wa.me/918431166905?text=Hi%20NEXLIX%20DIGITAL!%20I%20am%20interested%20in%20your%20web%20design%20services." target="_blank" class="nav-cta">Get Started</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="toggleMenu()">About</a>
+  <a href="#portfolio" onclick="toggleMenu()">Portfolio</a>
+  <a href="#services" onclick="toggleMenu()">Services</a>
+  <a href="#pricing" onclick="toggleMenu()">Pricing</a>
+  <a href="#contact" onclick="toggleMenu()">Contact</a>
+  <a href="https://wa.me/918431166905?text=Hi%20NEXLIX%20DIGITAL!%20I%20am%20interested%20in%20your%20web%20design%20services." target="_blank" class="mcta" onclick="toggleMenu()">💬 Chat on WhatsApp →</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="orb hero-orb1"></div>
+  <div class="orb hero-orb2"></div>
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-left">
+        <div class="hero-badge"><div class="hero-badge-dot"></div>India's Premium Web Design Agency</div>
+        <h1 class="hero-h1">Professional Websites For <em class="grad-text">Modern Businesses</em></h1>
+        <p class="hero-sub">We build fast, mobile-friendly and conversion-focused websites that help businesses grow online.</p>
+        <div class="hero-btns">
+          <a href="#portfolio" class="btn-primary">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+            View My Work
+          </a>
+          <a href="https://wa.me/918431166905?text=Hi%20NEXLIX%20DIGITAL!%20I%20am%20interested%20in%20your%20web%20design%20services." target="_blank" class="btn-primary btn-wa">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Chat on WhatsApp
+          </a>
+        </div>
+        <div class="hero-trust">
+          <div class="trust-badge"><div class="icon">⚡</div>Fast Delivery</div>
+          <div class="trust-badge"><div class="icon">📱</div>Mobile-First</div>
+          <div class="trust-badge"><div class="icon">🔍</div>SEO Optimized</div>
+          <div class="trust-badge"><div class="icon">⭐</div>5-Star Quality</div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="mockup-wrap">
+          <div class="mockup-main">
+            <div class="mockup-bar">
+              <div class="dot r"></div><div class="dot y"></div><div class="dot g"></div>
+              <div class="url-bar">nexlixdigital.com</div>
+            </div>
+            <div class="mockup-content">
+              <div class="mc-hero">
+                <div class="mc-hero-title">NEXLIX DIGITAL</div>
+                <div class="mc-hero-sub">Websites That Grow Businesses</div>
+                <div class="mc-btn-row">
+                  <div class="mc-btn">Our Work</div>
+                  <div class="mc-btn">Get Quote</div>
+                </div>
+              </div>
+              <div class="mc-cards">
+                <div class="mc-card"><div class="mc-card-icon">🚀</div>Fast</div>
+                <div class="mc-card"><div class="mc-card-icon">📱</div>Mobile</div>
+                <div class="mc-card"><div class="mc-card-icon">🎨</div>Beautiful</div>
+              </div>
+            </div>
+          </div>
+          <div class="mockup-secondary">
+            <div class="mockup-bar" style="padding:7px 10px;">
+              <div class="dot r"></div><div class="dot y"></div><div class="dot g"></div>
+              <div class="url-bar" style="font-size:9px;">Analytics</div>
+            </div>
+            <div class="ms-inner">
+              <div class="ms-head">Performance</div>
+              <div class="ms-stat"><span class="ms-label">Speed Score</span><span class="ms-val" style="color:#a78bfa">98</span></div>
+              <div class="ms-bar-track"><div class="ms-bar-fill" style="width:98%"></div></div>
+              <div class="ms-stat"><span class="ms-label">SEO Score</span><span class="ms-val" style="color:#60a5fa">95</span></div>
+              <div class="ms-bar-track"><div class="ms-bar-fill" style="width:95%"></div></div>
+              <div class="ms-stat"><span class="ms-label">Mobile</span><span class="ms-val" style="color:#34d399">100</span></div>
+              <div class="ms-bar-track"><div class="ms-bar-fill" style="width:100%; background: linear-gradient(90deg, #34d399, #059669)"></div></div>
+            </div>
+          </div>
+          <div class="floating-chip chip1">✦ 15+ Projects Delivered</div>
+          <div class="floating-chip chip2">🚀 Lightning Fast</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item reveal">
+        <div class="stat-num" data-target="15">0</div>
+        <div class="stat-label">Projects Delivered</div>
+      </div>
+      <div class="stat-item reveal reveal-delay-1">
+        <div class="stat-num" data-target="100">0</div>
+        <div class="stat-label">% Client Satisfaction</div>
+      </div>
+      <div class="stat-item reveal reveal-delay-2">
+        <div class="stat-num" data-target="3">0</div>
+        <div class="stat-label">Days Avg. Delivery</div>
+      </div>
+      <div class="stat-item reveal reveal-delay-3">
+        <div class="stat-num" data-target="98">0</div>
+        <div class="stat-label">Google Speed Score</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="orb" style="width:500px;height:500px;background:rgba(79,70,229,0.08);top:0;right:-150px"></div>
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-content">
+        <div class="section-eyebrow">Who We Are</div>
+        <h2 class="section-title reveal">About <span class="grad-text">NEXLIX DIGITAL</span></h2>
+        <p class="about-text reveal">We help businesses establish a strong online presence through modern, responsive and professional websites. Our focus is on clean design, fast performance and user experience.</p>
+        <div class="about-features">
+          <div class="af-item reveal"><div class="af-icon">⚡</div><span class="af-text">Fast Delivery — Live in 2-10 days</span></div>
+          <div class="af-item reveal reveal-delay-1"><div class="af-icon">📱</div><span class="af-text">Mobile Friendly — Looks great on every device</span></div>
+          <div class="af-item reveal reveal-delay-1"><div class="af-icon">🔍</div><span class="af-text">SEO Friendly — Rank higher on Google</span></div>
+          <div class="af-item reveal reveal-delay-2"><div class="af-icon">💬</div><span class="af-text">WhatsApp Integration — Direct customer connect</span></div>
+          <div class="af-item reveal reveal-delay-2"><div class="af-icon">🎨</div><span class="af-text">Professional Design — Premium UI/UX standards</span></div>
+        </div>
+      </div>
+      <div class="about-visual reveal">
+        <div class="av-card-accent">🏆 Premium Quality</div>
+        <div class="av-card-main">
+          <div class="av-logo">NX</div>
+          <div class="av-name">NEXLIX DIGITAL</div>
+          <div class="av-tagline">Websites That Grow Businesses</div>
+          <div class="av-divider"></div>
+          <div class="av-stats">
+            <div class="avs-item"><div class="avs-num">15+</div><div class="avs-label">Projects</div></div>
+            <div class="avs-item"><div class="avs-num">100%</div><div class="avs-label">Satisfaction</div></div>
+            <div class="avs-item"><div class="avs-num">3+</div><div class="avs-label">Industries</div></div>
+          </div>
+          <div class="av-divider"></div>
+          <div class="av-tech-row">
+            <span class="tech-tag">HTML5</span>
+            <span class="tech-tag">CSS3</span>
+            <span class="tech-tag">JavaScript</span>
+            <span class="tech-tag">React</span>
+            <span class="tech-tag">WordPress</span>
+            <span class="tech-tag">Shopify</span>
+            <span class="tech-tag">SEO</span>
+            <span class="tech-tag">Performance</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio">
+  <div class="orb" style="width:400px;height:400px;background:rgba(124,58,237,0.07);bottom:0;left:-100px"></div>
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">Our Work</div>
+      <h2 class="section-title reveal">Recent <span class="grad-text">Projects</span></h2>
+      <p class="section-sub reveal">Handcrafted websites built for real businesses — fast, mobile-ready, and conversion-focused.</p>
+    </div>
+
+    <div class="portfolio-filters reveal">
+      <button class="filter-btn active" data-filter="all">All Projects</button>
+      <button class="filter-btn" data-filter="restaurant">Restaurant</button>
+      <button class="filter-btn" data-filter="fashion">Fashion</button>
+      <button class="filter-btn" data-filter="ecommerce">E-Commerce</button>
+      <button class="filter-btn" data-filter="fitness">Fitness</button>
+    </div>
+
+    <div class="portfolio-grid">
+
+      <!-- Project 1 -->
+      <div class="project-card reveal" data-category="restaurant">
+        <div class="project-preview">
+          <img class="project-screenshot" 
+               src="https://api.microlink.io/?url=https://habibi-house.netlify.app&screenshot=true&meta=false&embed=screenshot.url&waitFor=2000" 
+               alt="Habibi House Restaurant Website"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+          <svg class="project-preview-svg" style="display:none" viewBox="0 0 600 240" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="hg1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#1a0800"/><stop offset="100%" stop-color="#2d0f00"/></linearGradient>
+              <linearGradient id="hg2" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#f97316"/><stop offset="100%" stop-color="#ea580c"/></linearGradient>
+            </defs>
+            <rect width="600" height="240" fill="url(#hg1)"/>
+            <!-- nav -->
+            <rect x="0" y="0" width="600" height="36" fill="rgba(0,0,0,0.5)"/>
+            <text x="24" y="23" font-family="serif" font-size="13" font-weight="bold" fill="#f97316">HABIBI HOUSE</text>
+            <text x="340" y="23" font-family="sans-serif" font-size="10" fill="rgba(255,255,255,0.6)">Menu</text>
+            <text x="390" y="23" font-family="sans-serif" font-size="10" fill="rgba(255,255,255,0.6)">About</text>
+            <text x="440" y="23" font-family="sans-serif" font-size="10" fill="rgba(255,255,255,0.6)">Contact</text>
+            <rect x="492" y="12" width="80" height="14" rx="7" fill="url(#hg2)"/>
+            <text x="532" y="22" font-family="sans-serif" font-size="9" fill="white" text-anchor="middle">Order Now</text>
+            <!-- hero -->
+            <rect x="0" y="36" width="600" height="130" fill="rgba(249,115,22,0.08)"/>
+            <!-- decorative circles -->
+            <circle cx="480" cy="95" r="70" fill="rgba(249,115,22,0.12)"/>
+            <circle cx="510" cy="75" r="40" fill="rgba(234,88,12,0.15)"/>
+            <text x="300" y="80" font-family="serif" font-size="9" fill="rgba(249,115,22,0.8)" text-anchor="middle" letter-spacing="3">AUTHENTIC MIDDLE EASTERN CUISINE</text>
+            <text x="300" y="102" font-family="serif" font-size="22" font-weight="bold" fill="white" text-anchor="middle">Taste the</text>
+            <text x="300" y="126" font-family="serif" font-size="22" font-weight="bold" fill="url(#hg2)" text-anchor="middle">Middle East</text>
+            <rect x="200" y="140" width="90" height="18" rx="9" fill="url(#hg2)"/>
+            <text x="245" y="153" font-family="sans-serif" font-size="9" fill="white" text-anchor="middle">View Menu</text>
+            <rect x="300" y="140" width="100" height="18" rx="9" fill="none" stroke="rgba(249,115,22,0.6)" stroke-width="1"/>
+            <text x="350" y="153" font-family="sans-serif" font-size="9" fill="rgba(249,115,22,0.9)" text-anchor="middle">📱 WhatsApp Order</text>
+            <!-- menu cards -->
+            <rect x="0" y="170" width="600" height="70" fill="rgba(0,0,0,0.4)"/>
+            <rect x="20" y="178" width="80" height="54" rx="8" fill="rgba(249,115,22,0.15)" stroke="rgba(249,115,22,0.3)" stroke-width="1"/>
+            <text x="60" y="200" font-size="18" text-anchor="middle">🥙</text>
+            <text x="60" y="216" font-family="sans-serif" font-size="8" fill="white" text-anchor="middle">Shawarma</text>
+            <text x="60" y="226" font-family="sans-serif" font-size="7" fill="rgba(249,115,22,0.9)" text-anchor="middle">₹249</text>
+            <rect x="115" y="178" width="80" height="54" rx="8" fill="rgba(249,115,22,0.15)" stroke="rgba(249,115,22,0.3)" stroke-width="1"/>
+            <text x="155" y="200" font-size="18" text-anchor="middle">🍱</text>
+            <text x="155" y="216" font-family="sans-serif" font-size="8" fill="white" text-anchor="middle">Mezze Platter</text>
+            <text x="155" y="226" font-family="sans-serif" font-size="7" fill="rgba(249,115,22,0.9)" text-anchor="middle">₹449</text>
+            <rect x="210" y="178" width="80" height="54" rx="8" fill="rgba(249,115,22,0.15)" stroke="rgba(249,115,22,0.3)" stroke-width="1"/>
+            <text x="250" y="200" font-size="18" text-anchor="middle">🧆</text>
+            <text x="250" y="216" font-family="sans-serif" font-size="8" fill="white" text-anchor="middle">Falafel</text>
+            <text x="250" y="226" font-family="sans-serif" font-size="7" fill="rgba(249,115,22,0.9)" text-anchor="middle">₹199</text>
+            <!-- gradient overlay bottom -->
+            <rect x="0" y="190" width="600" height="50" fill="url(#hgOverlay)" opacity="0.8"/>
+            <defs><linearGradient id="hgOverlay" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0f0f18" stop-opacity="0"/><stop offset="100%" stop-color="#0f0f18" stop-opacity="1"/></linearGradient></defs>
+          </svg>
+          <div class="project-badge">Restaurant</div>
+          <a href="https://habibi-house.netlify.app" target="_blank" class="project-live-btn">↗ Live Demo</a>
+        </div>
+        <div class="project-info">
+          <h3 class="project-title">Habibi House Restaurant</h3>
+          <p class="project-desc">Modern restaurant website with online menu, mobile responsive design and WhatsApp ordering integration.</p>
+          <div class="project-tags">
+            <span class="ptag">HTML</span><span class="ptag">CSS</span><span class="ptag">JavaScript</span><span class="ptag">WhatsApp API</span><span class="ptag">Responsive</span>
+          </div>
+          <div class="project-footer">
+            <a href="https://habibi-house.netlify.app" target="_blank">View Live Site →</a>
+            <span style="font-size:12px;color:var(--text3)">Restaurant</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="project-card reveal reveal-delay-1" data-category="fashion">
+        <div class="project-preview">
+          <img class="project-screenshot"
+               src="https://api.microlink.io/?url=https://rjmfs.netlify.app&screenshot=true&meta=false&embed=screenshot.url&waitFor=2000"
+               alt="RJM Fashion Website"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+          <svg class="project-preview-svg" style="display:none" viewBox="0 0 600 240" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="fg1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#0d000d"/><stop offset="100%" stop-color="#1a0028"/></linearGradient>
+              <linearGradient id="fg2" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#ec4899"/><stop offset="100%" stop-color="#9333ea"/></linearGradient>
+              <linearGradient id="fgGold" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#f59e0b"/><stop offset="100%" stop-color="#d97706"/></linearGradient>
+            </defs>
+            <rect width="600" height="240" fill="url(#fg1)"/>
+            <!-- sparkle dots -->
+            <circle cx="80" cy="40" r="1.5" fill="rgba(236,72,153,0.6)"/>
+            <circle cx="200" cy="20" r="1" fill="rgba(147,51,234,0.5)"/>
+            <circle cx="450" cy="60" r="2" fill="rgba(236,72,153,0.4)"/>
+            <circle cx="530" cy="30" r="1.5" fill="rgba(147,51,234,0.6)"/>
+            <!-- nav -->
+            <rect x="0" y="0" width="600" height="34" fill="rgba(0,0,0,0.6)"/>
+            <text x="24" y="22" font-family="serif" font-size="12" font-weight="bold" fill="white" letter-spacing="4">RJM</text>
+            <text x="60" y="22" font-family="serif" font-size="8" fill="rgba(236,72,153,0.8)" letter-spacing="2">FASHION</text>
+            <text x="330" y="22" font-family="sans-serif" font-size="9" fill="rgba(255,255,255,0.5)">Collections</text>
+            <text x="400" y="22" font-family="sans-serif" font-size="9" fill="rgba(255,255,255,0.5)">New In</text>
+            <text x="455" y="22" font-family="sans-serif" font-size="9" fill="rgba(255,255,255,0.5)">About</text>
+            <rect x="500" y="11" width="78" height="14" rx="7" fill="url(#fgGold)"/>
+            <text x="539" y="21" font-family="sans-serif" font-size="8" fill="white" text-anchor="middle">Shop Now</text>
+            <!-- hero -->
+            <text x="300" y="70" font-family="serif" font-size="8" fill="rgba(236,72,153,0.7)" text-anchor="middle" letter-spacing="5">PREMIUM FASHION</text>
+            <text x="300" y="96" font-family="serif" font-size="26" font-weight="bold" fill="white" text-anchor="middle">Elegance</text>
+            <text x="300" y="122" font-family="serif" font-size="26" font-weight="bold" fill="url(#fg2)" text-anchor="middle">Redefined</text>
+            <text x="300" y="142" font-family="sans-serif" font-size="9" fill="rgba(255,255,255,0.45)" text-anchor="middle">Curated collections for the modern woman</text>
+            <rect x="225" y="152" width="70" height="16" rx="8" fill="url(#fg2)"/>
+            <text x="260" y="163" font-family="sans-serif" font-size="8" fill="white" text-anchor="middle">Explore</text>
+            <rect x="305" y="152" width="70" height="16" rx="8" fill="none" stroke="rgba(236,72,153,0.5)" stroke-width="1"/>
+            <text x="340" y="163" font-family="sans-serif" font-size="8" fill="rgba(236,72,153,0.9)" text-anchor="middle">Lookbook</text>
+            <!-- product row -->
+            <rect x="0" y="178" width="600" height="62" fill="rgba(0,0,0,0.35)"/>
+            <rect x="20" y="184" width="60" height="48" rx="6" fill="rgba(236,72,153,0.12)" stroke="rgba(236,72,153,0.25)" stroke-width="1"/>
+            <text x="50" y="212" font-size="22" text-anchor="middle">👗</text>
+            <text x="50" y="228" font-family="sans-serif" font-size="7" fill="rgba(255,255,255,0.7)" text-anchor="middle">Dress</text>
+            <rect x="95" y="184" width="60" height="48" rx="6" fill="rgba(147,51,234,0.12)" stroke="rgba(147,51,234,0.25)" stroke-width="1"/>
+            <text x="125" y="212" font-size="22" text-anchor="middle">👜</text>
+            <text x="125" y="228" font-family="sans-serif" font-size="7" fill="rgba(255,255,255,0.7)" text-anchor="middle">Handbag</text>
+            <rect x="170" y="184" width="60" height="48" rx="6" fill="rgba(236,72,153,0.12)" stroke="rgba(236,72,153,0.25)" stroke-width="1"/>
+            <text x="200" y="212" font-size="22" text-anchor="middle">👠</text>
+            <text x="200" y="228" font-family="sans-serif" font-size="7" fill="rgba(255,255,255,0.7)" text-anchor="middle">Heels</text>
+            <rect x="245" y="184" width="60" height="48" rx="6" fill="rgba(147,51,234,0.12)" stroke="rgba(147,51,234,0.25)" stroke-width="1"/>
+            <text x="275" y="212" font-size="22" text-anchor="middle">💍</text>
+            <text x="275" y="228" font-family="sans-serif" font-size="7" fill="rgba(255,255,255,0.7)" text-anchor="middle">Jewellery</text>
+            <defs><linearGradient id="fgOverlay" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0f0f18" stop-opacity="0"/><stop offset="100%" stop-color="#0f0f18" stop-opacity="1"/></linearGradient></defs>
+            <rect x="0" y="200" width="600" height="40" fill="url(#fgOverlay)"/>
+          </svg>
+          <div class="project-badge">Fashion</div>
+          <a href="https://rjmfs.netlify.app" target="_blank" class="project-live-btn">↗ Live Demo</a>
+        </div>
+        <div class="project-info">
+          <h3 class="project-title">RJM Fashion Website</h3>
+          <p class="project-desc">Premium fashion e-commerce style website with collections, product showcase and luxury design.</p>
+          <div class="project-tags">
+            <span class="ptag">HTML</span><span class="ptag">CSS</span><span class="ptag">JavaScript</span><span class="ptag">E-Commerce</span><span class="ptag">Luxury UI</span>
+          </div>
+          <div class="project-footer">
+            <a href="https://rjmfs.netlify.app" target="_blank">View Live Site →</a>
+            <span style="font-size:12px;color:var(--text3)">Fashion</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="project-card reveal" data-category="ecommerce">
+        <div class="project-preview">
+          <svg class="project-preview-svg" viewBox="0 0 600 240" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="sg1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00050f"/><stop offset="100%" stop-color="#000e1a"/></linearGradient>
+              <linearGradient id="sg2" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#3b82f6"/><stop offset="100%" stop-color="#0ea5e9"/></linearGradient>
+              <linearGradient id="sgOverlay" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0f0f18" stop-opacity="0"/><stop offset="100%" stop-color="#0f0f18" stop-opacity="1"/></linearGradient>
+            </defs>
+            <rect width="600" height="240" fill="url(#sg1)"/>
+            <!-- grid lines subtle -->
+            <line x1="0" y1="60" x2="600" y2="60" stroke="rgba(59,130,246,0.06)" stroke-width="1"/>
+            <line x1="0" y1="120" x2="600" y2="120" stroke="rgba(59,130,246,0.06)" stroke-width="1"/>
+            <line x1="0" y1="180" x2="600" y2="180" stroke="rgba(59,130,246,0.06)" stroke-width="1"/>
+            <line x1="150" y1="0" x2="150" y2="240" stroke="rgba(59,130,246,0.04)" stroke-width="1"/>
+            <line x1="300" y1="0" x2="300" y2="240" stroke="rgba(59,130,246,0.04)" stroke-width="1"/>
+            <line x1="450" y1="0" x2="450" y2="240" stroke="rgba(59,130,246,0.04)" stroke-width="1"/>
+            <!-- nav -->
+            <rect x="0" y="0" width="600" height="34" fill="rgba(0,0,0,0.7)"/>
+            <circle cx="20" cy="17" r="8" fill="url(#sg2)"/>
+            <text x="20" y="21" font-family="sans-serif" font-size="9" font-weight="bold" fill="white" text-anchor="middle">S</text>
+            <text x="35" y="22" font-family="sans-serif" font-size="11" font-weight="bold" fill="white" letter-spacing="1">SOLE STEP</text>
+            <text x="310" y="22" font-family="sans-serif" font-size="9" fill="rgba(255,255,255,0.5)">Men</text>
+            <text x="350" y="22" font-family="sans-serif" font-size="9" fill="rgba(255,255,255,0.5)">Women</text>
+            <text x="400" y="22" font-family="sans-serif" font-size="9" fill="rgba(255,255,255,0.5)">Sale</text>
+            <text x="450" y="22" font-family="sans-serif" font-size="9" fill="rgba(255,255,255,0.5)">About</text>
+            <rect x="492" y="11" width="88" height="14" rx="7" fill="url(#sg2)"/>
+            <text x="536" y="21" font-family="sans-serif" font-size="8" fill="white" text-anchor="middle">Shop Now →</text>
+            <!-- hero area -->
+            <rect x="0" y="34" width="260" height="140" fill="rgba(59,130,246,0.05)"/>
+            <text x="24" y="65" font-family="sans-serif" font-size="8" fill="rgba(59,130,246,0.8)" letter-spacing="3">STEP INTO STYLE</text>
+            <text x="24" y="90" font-family="sans-serif" font-size="24" font-weight="bold" fill="white">Premium</text>
+            <text x="24" y="116" font-family="sans-serif" font-size="24" font-weight="bold" fill="url(#sg2)">Footwear</text>
+            <text x="24" y="136" font-family="sans-serif" font-size="8" fill="rgba(255,255,255,0.4)">Comfort meets style</text>
+            <rect x="24" y="148" width="70" height="16" rx="8" fill="url(#sg2)"/>
+            <text x="59" y="159" font-family="sans-serif" font-size="8" fill="white" text-anchor="middle">Explore</text>
+            <rect x="104" y="148" width="80" height="16" rx="8" fill="none" stroke="rgba(59,130,246,0.5)" stroke-width="1"/>
+            <text x="144" y="159" font-family="sans-serif" font-size="8" fill="rgba(59,130,246,0.9)" text-anchor="middle">View Catalog</text>
+            <!-- featured shoe big -->
+            <text x="420" y="140" font-size="80" text-anchor="middle">👟</text>
+            <circle cx="420" cy="110" r="60" fill="rgba(59,130,246,0.06)" stroke="rgba(59,130,246,0.12)" stroke-width="1"/>
+            <!-- product cards row -->
+            <rect x="0" y="178" width="600" height="62" fill="rgba(0,0,0,0.4)"/>
+            <rect x="16" y="183" width="68" height="50" rx="8" fill="rgba(59,130,246,0.1)" stroke="rgba(59,130,246,0.2)" stroke-width="1"/>
+            <text x="50" y="210" font-size="20" text-anchor="middle">👟</text>
+            <text x="50" y="223" font-family="sans-serif" font-size="7" fill="rgba(255,255,255,0.7)" text-anchor="middle">Sneakers</text>
+            <text x="50" y="232" font-family="sans-serif" font-size="7" fill="rgba(59,130,246,0.9)" text-anchor="middle">₹2,499</text>
+            <rect x="96" y="183" width="68" height="50" rx="8" fill="rgba(14,165,233,0.1)" stroke="rgba(14,165,233,0.2)" stroke-width="1"/>
+            <text x="130" y="210" font-size="20" text-anchor="middle">👞</text>
+            <text x="130" y="223" font-family="sans-serif" font-size="7" fill="rgba(255,255,255,0.7)" text-anchor="middle">Formals</text>
+            <text x="130" y="232" font-family="sans-serif" font-size="7" fill="rgba(14,165,233,0.9)" text-anchor="middle">₹3,299</text>
+            <rect x="176" y="183" width="68" height="50" rx="8" fill="rgba(59,130,246,0.1)" stroke="rgba(59,130,246,0.2)" stroke-width="1"/>
+            <text x="210" y="210" font-size="20" text-anchor="middle">🥿</text>
+            <text x="210" y="223" font-family="sans-serif" font-size="7" fill="rgba(255,255,255,0.7)" text-anchor="middle">Casual</text>
+            <text x="210" y="232" font-family="sans-serif" font-size="7" fill="rgba(59,130,246,0.9)" text-anchor="middle">₹1,899</text>
+            <rect x="256" y="183" width="68" height="50" rx="8" fill="rgba(14,165,233,0.1)" stroke="rgba(14,165,233,0.2)" stroke-width="1"/>
+            <text x="290" y="210" font-size="20" text-anchor="middle">👠</text>
+            <text x="290" y="223" font-family="sans-serif" font-size="7" fill="rgba(255,255,255,0.7)" text-anchor="middle">Heels</text>
+            <text x="290" y="232" font-family="sans-serif" font-size="7" fill="rgba(59,130,246,0.9)" text-anchor="middle">₹2,799</text>
+            <rect x="0" y="200" width="600" height="40" fill="url(#sgOverlay)"/>
+          </svg>
+          <div class="project-badge">E-Commerce</div>
+        </div>
+        <div class="project-info">
+          <h3 class="project-title">Shoe Store Website</h3>
+          <p class="project-desc">Modern shoe store website with product catalog, responsive layout and premium UI design.</p>
+          <div class="project-tags">
+            <span class="ptag">HTML</span><span class="ptag">CSS</span><span class="ptag">JavaScript</span><span class="ptag">Product Catalog</span><span class="ptag">Premium UI</span>
+          </div>
+          <div class="project-footer">
+            <a href="https://wa.me/918431166905?text=Hi!%20I%20saw%20your%20Shoe%20Store%20project%20and%20I%20am%20interested." target="_blank">Enquire About This →</a>
+            <span style="font-size:12px;color:var(--text3)">Retail</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 4 -->
+      <div class="project-card reveal reveal-delay-1" data-category="fitness">
+        <div class="project-preview">
+          <svg class="project-preview-svg" viewBox="0 0 600 240" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="gg1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#000800"/><stop offset="100%" stop-color="#001200"/></linearGradient>
+              <linearGradient id="gg2" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#10b981"/><stop offset="100%" stop-color="#059669"/></linearGradient>
+              <linearGradient id="gg3" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#f59e0b"/><stop offset="100%" stop-color="#d97706"/></linearGradient>
+              <linearGradient id="ggOverlay" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0f0f18" stop-opacity="0"/><stop offset="100%" stop-color="#0f0f18" stop-opacity="1"/></linearGradient>
+            </defs>
+            <rect width="600" height="240" fill="url(#gg1)"/>
+            <!-- texture lines -->
+            <line x1="0" y1="40" x2="600" y2="40" stroke="rgba(16,185,129,0.05)" stroke-width="1"/>
+            <line x1="0" y1="80" x2="600" y2="80" stroke="rgba(16,185,129,0.05)" stroke-width="1"/>
+            <line x1="0" y1="160" x2="600" y2="160" stroke="rgba(16,185,129,0.05)" stroke-width="1"/>
+            <line x1="0" y1="200" x2="600" y2="200" stroke="rgba(16,185,129,0.05)" stroke-width="1"/>
+            <!-- nav -->
+            <rect x="0" y="0" width="600" height="34" fill="rgba(0,0,0,0.75)"/>
+            <text x="24" y="22" font-family="sans-serif" font-size="13" font-weight="bold" fill="white" letter-spacing="2">FIT<tspan fill="#10b981">ZONE</tspan></text>
+            <text x="290" y="22" font-family="sans-serif" font-size="9" fill="rgba(255,255,255,0.5)">Home</text>
+            <text x="330" y="22" font-family="sans-serif" font-size="9" fill="rgba(255,255,255,0.5)">Classes</text>
+            <text x="380" y="22" font-family="sans-serif" font-size="9" fill="rgba(255,255,255,0.5)">Plans</text>
+            <text x="420" y="22" font-family="sans-serif" font-size="9" fill="rgba(255,255,255,0.5)">Trainers</text>
+            <rect x="476" y="11" width="100" height="14" rx="7" fill="url(#gg2)"/>
+            <text x="526" y="21" font-family="sans-serif" font-size="8" fill="white" text-anchor="middle">Join Now 💪</text>
+            <!-- hero split -->
+            <rect x="0" y="34" width="310" height="144" fill="rgba(16,185,129,0.04)"/>
+            <text x="24" y="62" font-family="sans-serif" font-size="7" fill="rgba(16,185,129,0.8)" letter-spacing="4">TRANSFORM YOUR BODY</text>
+            <text x="24" y="88" font-family="sans-serif" font-size="22" font-weight="bold" fill="white">Train Hard.</text>
+            <text x="24" y="113" font-family="sans-serif" font-size="22" font-weight="bold" fill="url(#gg2)">Live Stronger.</text>
+            <text x="24" y="133" font-family="sans-serif" font-size="8" fill="rgba(255,255,255,0.4)">State-of-the-art gym • Expert trainers</text>
+            <rect x="24" y="146" width="80" height="18" rx="9" fill="url(#gg2)"/>
+            <text x="64" y="158" font-family="sans-serif" font-size="9" fill="white" text-anchor="middle">Get Started</text>
+            <rect x="115" y="146" width="90" height="18" rx="9" fill="none" stroke="rgba(16,185,129,0.5)" stroke-width="1"/>
+            <text x="160" y="158" font-family="sans-serif" font-size="9" fill="rgba(16,185,129,0.9)" text-anchor="middle">View Plans</text>
+            <!-- right side big emoji -->
+            <circle cx="450" cy="106" r="65" fill="rgba(16,185,129,0.07)" stroke="rgba(16,185,129,0.1)" stroke-width="1"/>
+            <text x="450" y="128" font-size="70" text-anchor="middle">🏋️</text>
+            <!-- stats row -->
+            <rect x="310" y="34" width="290" height="70" fill="rgba(0,0,0,0.3)"/>
+            <!-- mini stat badges -->
+            <rect x="320" y="44" width="80" height="48" rx="8" fill="rgba(16,185,129,0.1)" stroke="rgba(16,185,129,0.2)" stroke-width="1"/>
+            <text x="360" y="66" font-family="sans-serif" font-size="18" font-weight="bold" fill="white" text-anchor="middle">500+</text>
+            <text x="360" y="80" font-family="sans-serif" font-size="7" fill="rgba(16,185,129,0.8)" text-anchor="middle">Members</text>
+            <rect x="412" y="44" width="80" height="48" rx="8" fill="rgba(16,185,129,0.1)" stroke="rgba(16,185,129,0.2)" stroke-width="1"/>
+            <text x="452" y="66" font-family="sans-serif" font-size="18" font-weight="bold" fill="white" text-anchor="middle">20+</text>
+            <text x="452" y="80" font-family="sans-serif" font-size="7" fill="rgba(16,185,129,0.8)" text-anchor="middle">Trainers</text>
+            <rect x="504" y="44" width="80" height="48" rx="8" fill="rgba(16,185,129,0.1)" stroke="rgba(16,185,129,0.2)" stroke-width="1"/>
+            <text x="544" y="66" font-family="sans-serif" font-size="18" font-weight="bold" fill="white" text-anchor="middle">24/7</text>
+            <text x="544" y="80" font-family="sans-serif" font-size="7" fill="rgba(16,185,129,0.8)" text-anchor="middle">Open</text>
+            <!-- membership plans -->
+            <rect x="0" y="178" width="600" height="62" fill="rgba(0,0,0,0.45)"/>
+            <rect x="16" y="183" width="100" height="50" rx="8" fill="rgba(16,185,129,0.08)" stroke="rgba(16,185,129,0.2)" stroke-width="1"/>
+            <text x="66" y="202" font-family="sans-serif" font-size="9" fill="rgba(255,255,255,0.6)" text-anchor="middle">Basic</text>
+            <text x="66" y="218" font-family="sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">₹999</text>
+            <text x="66" y="229" font-family="sans-serif" font-size="7" fill="rgba(16,185,129,0.7)" text-anchor="middle">/month</text>
+            <rect x="130" y="183" width="100" height="50" rx="8" fill="rgba(16,185,129,0.15)" stroke="rgba(16,185,129,0.5)" stroke-width="1.5"/>
+            <text x="180" y="196" font-family="sans-serif" font-size="7" fill="rgba(16,185,129,0.9)" text-anchor="middle">⭐ POPULAR</text>
+            <text x="180" y="212" font-family="sans-serif" font-size="9" fill="rgba(255,255,255,0.8)" text-anchor="middle">Standard</text>
+            <text x="180" y="226" font-family="sans-serif" font-size="13" font-weight="bold" fill="url(#gg2)" text-anchor="middle">₹1,999</text>
+            <rect x="244" y="183" width="100" height="50" rx="8" fill="rgba(16,185,129,0.08)" stroke="rgba(16,185,129,0.2)" stroke-width="1"/>
+            <text x="294" y="202" font-family="sans-serif" font-size="9" fill="rgba(255,255,255,0.6)" text-anchor="middle">Premium</text>
+            <text x="294" y="218" font-family="sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">₹2,999</text>
+            <text x="294" y="229" font-family="sans-serif" font-size="7" fill="rgba(16,185,129,0.7)" text-anchor="middle">/month</text>
+            <rect x="0" y="200" width="600" height="40" fill="url(#ggOverlay)"/>
+          </svg>
+          <div class="project-badge">Fitness</div>
+        </div>
+        <div class="project-info">
+          <h3 class="project-title">Gym Website</h3>
+          <p class="project-desc">Professional gym website with membership plans, trainer showcase and contact forms.</p>
+          <div class="project-tags">
+            <span class="ptag">HTML</span><span class="ptag">CSS</span><span class="ptag">JavaScript</span><span class="ptag">Memberships</span><span class="ptag">Animations</span>
+          </div>
+          <div class="project-footer">
+            <a href="https://wa.me/918431166905?text=Hi!%20I%20saw%20your%20Gym%20Website%20project%20and%20I%20am%20interested." target="_blank">Enquire About This →</a>
+            <span style="font-size:12px;color:var(--text3)">Fitness</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="orb" style="width:500px;height:500px;background:rgba(37,99,235,0.07);top:50%;left:-150px;transform:translateY(-50%)"></div>
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">What We Build</div>
+      <h2 class="section-title reveal">What We <span class="grad-text">Offer</span></h2>
+      <p class="section-sub reveal">From restaurants to fashion brands — we design & develop websites for every kind of business.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal"><div class="sc-icon">🏢</div><div class="sc-title">Business Websites</div><div class="sc-desc">Professional corporate sites that establish credibility and convert visitors.</div></div>
+      <div class="service-card reveal reveal-delay-1"><div class="sc-icon">🍽️</div><div class="sc-title">Restaurant Websites</div><div class="sc-desc">Online menus, WhatsApp ordering, and table booking for restaurants & cafes.</div></div>
+      <div class="service-card reveal reveal-delay-2"><div class="sc-icon">👗</div><div class="sc-title">Fashion Websites</div><div class="sc-desc">Luxury e-commerce style sites for fashion brands, boutiques and designers.</div></div>
+      <div class="service-card reveal reveal-delay-3"><div class="sc-icon">💪</div><div class="sc-title">Gym Websites</div><div class="sc-desc">Membership plans, trainer showcases, and schedules for fitness centres.</div></div>
+      <div class="service-card reveal"><div class="sc-icon">🎯</div><div class="sc-title">Landing Pages</div><div class="sc-desc">High-converting single pages designed to drive leads and sales.</div></div>
+      <div class="service-card reveal reveal-delay-1"><div class="sc-icon">🖼️</div><div class="sc-title">Portfolio Websites</div><div class="sc-desc">Stunning portfolios for freelancers, artists, photographers and agencies.</div></div>
+      <div class="service-card reveal reveal-delay-2"><div class="sc-icon">🔄</div><div class="sc-title">Website Redesign</div><div class="sc-desc">Modernize your outdated website with fresh design and better performance.</div></div>
+      <div class="service-card reveal reveal-delay-3"><div class="sc-icon">🔍</div><div class="sc-title">SEO Optimization</div><div class="sc-desc">Rank higher on Google and drive organic traffic to your website.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="orb" style="width:600px;height:600px;background:rgba(124,58,237,0.07);top:50%;right:-200px;transform:translateY(-50%)"></div>
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">Transparent Pricing</div>
+      <h2 class="section-title reveal">Simple, Clear <span class="grad-text">Pricing</span></h2>
+      <p class="section-sub reveal">No hidden charges. Choose the package that fits your business and budget.</p>
+    </div>
+    <div class="pricing-grid">
+
+      <!-- Basic -->
+      <div class="pricing-card reveal">
+        <div class="pricing-tier">Basic</div>
+        <div class="pricing-price"><sup>₹</sup>4,999</div>
+        <div class="pricing-delivery">⚡ 2-3 Days Delivery</div>
+        <div class="pricing-divider"></div>
+        <ul class="pricing-features">
+          <li><span class="pf-check">✓</span>1-3 Pages</li>
+          <li><span class="pf-check">✓</span>Mobile Friendly Design</li>
+          <li><span class="pf-check">✓</span>WhatsApp Integration</li>
+          <li><span class="pf-check">✓</span>Contact Form</li>
+          <li><span class="pf-check">✓</span>Free Hosting Setup</li>
+          <li><span class="pf-check">✓</span>2-3 Days Delivery</li>
+        </ul>
+        <a href="https://wa.me/918431166905?text=Hi!%20I%20am%20interested%20in%20the%20Basic%20Package%20%E2%82%B94999.%20Can%20we%20discuss%3F" target="_blank" class="pricing-cta">Get Started →</a>
+      </div>
+
+      <!-- Standard (Featured) -->
+      <div class="pricing-card featured reveal reveal-delay-1">
+        <div class="popular-badge">⭐ Most Popular</div>
+        <div class="pricing-tier">Standard</div>
+        <div class="pricing-price"><sup>₹</sup>9,999</div>
+        <div class="pricing-delivery">⚡ 5-8 Days Delivery</div>
+        <div class="pricing-divider"></div>
+        <ul class="pricing-features">
+          <li><span class="pf-check">✓</span>Up to 5 Pages</li>
+          <li><span class="pf-check">✓</span>Product Collections</li>
+          <li><span class="pf-check">✓</span>Gallery Section</li>
+          <li><span class="pf-check">✓</span>WhatsApp Integration</li>
+          <li><span class="pf-check">✓</span>Contact Forms</li>
+          <li><span class="pf-check">✓</span>Free Hosting Setup</li>
+          <li><span class="pf-check">✓</span>5-8 Days Delivery</li>
+        </ul>
+        <a href="https://wa.me/918431166905?text=Hi!%20I%20am%20interested%20in%20the%20Standard%20Package%20%E2%82%B99999.%20Can%20we%20discuss%3F" target="_blank" class="pricing-cta">Get Started →</a>
+      </div>
+
+      <!-- Premium -->
+      <div class="pricing-card reveal reveal-delay-2">
+        <div class="pricing-tier">Premium</div>
+        <div class="pricing-price"><sup>₹</sup>14,999</div>
+        <div class="pricing-delivery">⚡ 8-10 Days Delivery</div>
+        <div class="pricing-divider"></div>
+        <ul class="pricing-features">
+          <li><span class="pf-check">✓</span>Up to 10 Pages</li>
+          <li><span class="pf-check">✓</span>Advanced Design</li>
+          <li><span class="pf-check">✓</span>SEO Optimized</li>
+          <li><span class="pf-check">✓</span>Payment Integration</li>
+          <li><span class="pf-check">✓</span>Smooth Animations</li>
+          <li><span class="pf-check">✓</span>Premium UI/UX</li>
+          <li><span class="pf-check">✓</span>8-10 Days Delivery</li>
+        </ul>
+        <a href="https://wa.me/918431166905?text=Hi!%20I%20am%20interested%20in%20the%20Premium%20Package%20%E2%82%B914999.%20Can%20we%20discuss%3F" target="_blank" class="pricing-cta">Get Started →</a>
+      </div>
+
+    </div>
+    <p style="text-align:center;margin-top:28px;font-size:14px;color:var(--text3)">💬 Have a custom requirement? <a href="https://wa.me/918431166905?text=Hi!%20I%20have%20a%20custom%20project%20to%20discuss." target="_blank" style="color:var(--accent);text-decoration:none;font-weight:600">Chat with us on WhatsApp →</a></p>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">Client Reviews</div>
+      <h2 class="section-title reveal">What Our <span class="grad-text">Clients Say</span></h2>
+      <p class="section-sub reveal">Real feedback from real business owners who trusted NEXLIX DIGITAL with their online presence.</p>
+    </div>
+    <div class="testi-grid">
+
+      <div class="testi-card reveal">
+        <div class="testi-stars">⭐⭐⭐⭐⭐</div>
+        <p class="testi-text">"NEXLIX DIGITAL built our restaurant website in just 3 days! The design is stunning and our customers love the WhatsApp ordering feature. Best investment we made."</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background: linear-gradient(135deg, #f97316, #ea580c)">AH</div>
+          <div><div class="testi-name">Ahmed Hassan</div><div class="testi-role">Owner, Habibi House</div></div>
+        </div>
+      </div>
+
+      <div class="testi-card reveal reveal-delay-1">
+        <div class="testi-stars">⭐⭐⭐⭐⭐</div>
+        <p class="testi-text">"The fashion website they built for RJM looks absolutely premium. Our online enquiries tripled after the launch. The team is professional and delivers on time."</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background: linear-gradient(135deg, #ec4899, #9333ea)">RJ</div>
+          <div><div class="testi-name">Rahul Jain</div><div class="testi-role">Founder, RJM Fashion</div></div>
+        </div>
+      </div>
+
+      <div class="testi-card reveal reveal-delay-2">
+        <div class="testi-stars">⭐⭐⭐⭐⭐</div>
+        <p class="testi-text">"Exceptional work and very affordable pricing. My shoe store website looks better than I imagined. Fully responsive and loads super fast. Highly recommended!"</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background: linear-gradient(135deg, #3b82f6, #0ea5e9)">PK</div>
+          <div><div class="testi-name">Priya Kapoor</div><div class="testi-role">Owner, Sole Step Shoes</div></div>
+        </div>
+      </div>
+
+      <div class="testi-card reveal">
+        <div class="testi-stars">⭐⭐⭐⭐⭐</div>
+        <p class="testi-text">"Got our gym website built in under a week. The membership section is exactly what we needed. NEXLIX DIGITAL understood our vision and executed it perfectly."</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background: linear-gradient(135deg, #10b981, #059669)">VR</div>
+          <div><div class="testi-name">Vikram Rao</div><div class="testi-role">Director, FitZone Gym</div></div>
+        </div>
+      </div>
+
+      <div class="testi-card reveal reveal-delay-1">
+        <div class="testi-stars">⭐⭐⭐⭐⭐</div>
+        <p class="testi-text">"Very responsive team. Any changes I asked for were done within hours. The website they built for my business is modern, fast and professional. Worth every rupee!"</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background: linear-gradient(135deg, #f59e0b, #d97706)">SM</div>
+          <div><div class="testi-name">Sneha Mehta</div><div class="testi-role">CEO, Mehta Consultants</div></div>
+        </div>
+      </div>
+
+      <div class="testi-card reveal reveal-delay-2">
+        <div class="testi-stars">⭐⭐⭐⭐⭐</div>
+        <p class="testi-text">"I was amazed by the quality. Our portfolio website has gotten us so many new clients. The SEO work they did helped us rank on Google within a month!"</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background: linear-gradient(135deg, #8b5cf6, #6d28d9)">KS</div>
+          <div><div class="testi-name">Karan Shah</div><div class="testi-role">Freelance Photographer</div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="orb" style="width:500px;height:500px;background:rgba(124,58,237,0.09);top:0;left:-100px"></div>
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="section-eyebrow">Get In Touch</div>
+        <h2 class="section-title reveal">Let's Build Your <span class="grad-text">Website</span></h2>
+        <p class="section-sub reveal">Have a project in mind? Reach out on WhatsApp or email. We'll respond within a few hours.</p>
+
+        <div class="contact-channels">
+          <a href="https://wa.me/918431166905?text=Hi%20NEXLIX%20DIGITAL!%20I%20want%20to%20build%20a%20website." target="_blank" class="cc-item reveal">
+            <div class="cc-icon" style="background:rgba(37,211,102,0.12);font-size:22px">💬</div>
+            <div><div class="cc-label">WhatsApp</div><div class="cc-val">+91 8431166905</div></div>
+          </a>
+          <a href="mailto:nexlixdigital1@gmail.com" class="cc-item reveal reveal-delay-1">
+            <div class="cc-icon" style="background:rgba(124,58,237,0.12);font-size:20px">✉️</div>
+            <div><div class="cc-label">Email</div><div class="cc-val">nexlixdigital1@gmail.com</div></div>
+          </a>
+          <a href="https://instagram.com/nexlix.digital" target="_blank" class="cc-item reveal reveal-delay-2">
+            <div class="cc-icon" style="background:rgba(236,72,153,0.12);font-size:20px">📸</div>
+            <div><div class="cc-label">Instagram</div><div class="cc-val">@nexlix.digital</div></div>
+          </a>
+        </div>
+
+        <a href="https://wa.me/918431166905?text=Hi%20NEXLIX%20DIGITAL!%20I%20want%20to%20discuss%20my%20website%20project." target="_blank" class="wa-cta-big reveal">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Chat on WhatsApp Now
+        </a>
+      </div>
+
+      <div class="contact-form-wrap reveal">
+        <h3 class="form-title">Send Us a Message</h3>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Your Name</label>
+            <input type="text" class="form-input" placeholder="e.g. Rahul Kumar">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Phone Number</label>
+            <input type="tel" class="form-input" placeholder="+91 XXXXX XXXXX">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email Address</label>
+          <input type="email" class="form-input" placeholder="you@email.com">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Website Type</label>
+          <select class="form-select">
+            <option value="">Select website type</option>
+            <option>Business Website</option>
+            <option>Restaurant Website</option>
+            <option>Fashion Website</option>
+            <option>Gym / Fitness Website</option>
+            <option>Landing Page</option>
+            <option>Portfolio Website</option>
+            <option>Website Redesign</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Tell Us About Your Project</label>
+          <textarea class="form-textarea" placeholder="Brief description of your business and what you need..."></textarea>
+        </div>
+        <button class="form-submit" onclick="submitForm(this)">Send Message via WhatsApp 💬</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo" style="margin-bottom:10px">
+          <div class="logo-icon">NX</div>
+          <span class="logo-text">NEXLIX <span>DIGITAL</span></span>
+        </div>
+        <div class="footer-tagline">Websites That Grow Businesses</div>
+        <div class="footer-social">
+          <a href="https://instagram.com/nexlix.digital" target="_blank" class="social-btn" title="Instagram">📸</a>
+          <a href="https://wa.me/918431166905" target="_blank" class="social-btn" title="WhatsApp">💬</a>
+          <a href="mailto:nexlixdigital1@gmail.com" class="social-btn" title="Email">✉️</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Quick Links</div>
+        <ul class="footer-links">
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Services</div>
+        <ul class="footer-links">
+          <li><a href="#services">Business Websites</a></li>
+          <li><a href="#services">Restaurant Websites</a></li>
+          <li><a href="#services">Fashion Websites</a></li>
+          <li><a href="#services">Gym Websites</a></li>
+          <li><a href="#services">SEO Optimization</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2025 <span>NEXLIX DIGITAL</span>. All Rights Reserved. Crafted with ❤️ in India.</div>
+      <div class="footer-copy">nexlixdigital1@gmail.com | <a href="https://wa.me/918431166905" target="_blank" style="color:var(--accent);text-decoration:none">+91 8431166905</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Loading screen
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    document.getElementById('loading-screen').classList.add('done');
+  }, 1600);
+});
+
+// Nav scroll
+window.addEventListener('scroll', () => {
+  const nav = document.getElementById('navbar');
+  const scrollTop = document.getElementById('scroll-top');
+  if (window.scrollY > 50) {
+    nav.classList.add('scrolled');
+  } else {
+    nav.classList.remove('scrolled');
+  }
+  if (window.scrollY > 400) {
+    scrollTop.classList.add('visible');
+  } else {
+    scrollTop.classList.remove('visible');
+  }
+});
+
+// Mobile menu
+function toggleMenu() {
+  const menu = document.getElementById('mobileMenu');
+  menu.classList.toggle('open');
+}
+
+// Reveal on scroll
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+reveals.forEach(el => observer.observe(el));
+
+// Counter animation
+function animateCounter(el) {
+  const target = parseInt(el.getAttribute('data-target'));
+  const duration = 1800;
+  const step = target / (duration / 16);
+  let current = 0;
+  const timer = setInterval(() => {
+    current += step;
+    if (current >= target) {
+      current = target;
+      clearInterval(timer);
+    }
+    el.textContent = Math.floor(current) + (el.closest('.stat-item').querySelector('.stat-label').textContent.includes('%') && el.closest('.stat-item').querySelector('.stat-label').textContent === '% Client Satisfaction' ? '' : el.getAttribute('data-target') === '15' ? '+' : '');
+  }, 16);
+}
+
+const counterObs = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const nums = entry.target.querySelectorAll('[data-target]');
+      nums.forEach(num => animateCounter(num));
+      counterObs.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.4 });
+const statsBar = document.querySelector('.stats-bar');
+if (statsBar) counterObs.observe(statsBar);
+
+// Portfolio filter
+const filterBtns = document.querySelectorAll('.filter-btn');
+const cards = document.querySelectorAll('.project-card');
+filterBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    filterBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const filter = btn.getAttribute('data-filter');
+    cards.forEach(card => {
+      if (filter === 'all' || card.getAttribute('data-category') === filter) {
+        card.style.display = '';
+        setTimeout(() => { card.style.opacity = '1'; card.style.transform = ''; }, 10);
+      } else {
+        card.style.opacity = '0';
+        card.style.transform = 'scale(0.95)';
+        setTimeout(() => { card.style.display = 'none'; }, 300);
+      }
+    });
+  });
+});
+
+// Form submit → WhatsApp
+function submitForm(btn) {
+  const inputs = btn.closest('.contact-form-wrap').querySelectorAll('.form-input, .form-textarea, .form-select');
+  const name = inputs[0].value || 'Customer';
+  const phone = inputs[1].value || '';
+  const email = inputs[2].value || '';
+  const type = inputs[3].value || 'Website';
+  const message = inputs[4].value || '';
+  const text = encodeURIComponent(`Hi NEXLIX DIGITAL! 👋\n\nName: ${name}\nPhone: ${phone}\nEmail: ${email}\nWebsite Type: ${type}\n\nMessage: ${message}`);
+  window.open(`https://wa.me/918431166905?text=${text}`, '_blank');
+}
+
+// Smooth scroll for nav links
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+});
+</script>
+</body>
+</html>
