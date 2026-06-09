@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Nexlix Digital builds premium, lightning-fast websites for local businesses in fashion, fitness, hospitality, and retail. Get conversion-focused design, SEO, and WhatsApp support.">
 <title>Nexlix Digital — Web Design & Development Agency</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23050908'/%3E%3Cpath d='M18 38h28v4H18zM18 22h28v4H18z' fill='%23c8f135'/%3E%3Cpath d='M20 18h24v4H20zM20 42h24v4H20z' fill='none' stroke='%23c8f135' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -344,12 +345,16 @@ ul { list-style: none; }
 .cycler-wrap {
   position: relative;
   display: inline-block;
-  min-width: 280px;
+  min-width: 180px;
+  overflow: hidden;
 }
 .cycler-text {
   color: var(--lime);
   display: inline-block;
   position: relative;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.45s ease, transform 0.45s ease;
 }
 .cycler-text::after {
   content: '';
@@ -516,6 +521,9 @@ ul { list-style: none; }
   transition: var(--transition);
   cursor: pointer;
   transform-style: preserve-3d;
+  display: flex;
+  flex-direction: column;
+  min-height: 560px;
 }
 .project-card::before {
   content: '';
@@ -526,12 +534,243 @@ ul { list-style: none; }
 }
 .project-card:hover {
   border-color: rgba(200,241,53,0.35);
-  transform: translateY(-6px) scale(1.01);
-  box-shadow: 0 32px 90px rgba(200,241,53,0.14), 0 0 0 1px rgba(200,241,53,0.12);
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 36px 120px rgba(200,241,53,0.18), 0 0 0 1px rgba(200,241,53,0.12);
 }
 .project-card:hover::before {
-  box-shadow: inset 0 0 0 1px rgba(200,241,53,0.12);
+  box-shadow: inset 0 0 0 1px rgba(200,241,53,0.12); }
+.project-body {
+  padding: 24px 24px 20px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  flex: 1;
+  min-height: 150px;
 }
+.project-body .project-info {
+  flex: 1;
+}
+.project-link-btn {
+  width: auto;
+}
+.hero-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 36px;
+}
+.hero-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  border-radius: 999px;
+  background: rgba(200,241,53,0.08);
+  border: 1px solid rgba(200,241,53,0.14);
+  color: var(--white);
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  transition: var(--transition);
+}
+.hero-badge-pill:hover {
+  transform: translateY(-2px);
+  border-color: rgba(200,241,53,0.28);
+}
+.process {
+  background: var(--bg2);
+}
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+  margin-top: 40px;
+}
+.process-card {
+  background: var(--bg3);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+.process-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top left, rgba(200,241,53,0.08), transparent 45%);
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+.process-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(200,241,53,0.24);
+}
+.process-card:hover::before {
+  opacity: 1;
+}
+.process-icon {
+  width: 52px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  border-radius: 16px;
+  background: rgba(200,241,53,0.12);
+  color: var(--lime);
+  font-size: 24px;
+  margin-bottom: 24px;
+}
+.process-title {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+.process-text {
+  color: var(--muted);
+  line-height: 1.8;
+}
+.trust {
+  background: var(--bg);
+}
+.trust-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 36px;
+}
+.trust-card {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(200,241,53,0.16);
+  border-radius: var(--radius-lg);
+  padding: 28px 24px;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  transition: var(--transition);
+}
+.trust-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 70px rgba(200,241,53,0.12);
+  border-color: rgba(200,241,53,0.3);
+}
+.trust-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(200,241,53,0.08), transparent 60%);
+  opacity: 0;
+  transition: opacity var(--transition);
+  pointer-events: none;
+}
+.trust-card:hover::before {
+  opacity: 1;
+}
+.trust-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 14px;
+  background: rgba(200,241,53,0.12);
+  display: grid;
+  place-items: center;
+  font-size: 18px;
+  color: var(--lime);
+  flex-shrink: 0;
+}
+.trust-title {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--white);
+}
+.cta-section {
+  background: linear-gradient(180deg, rgba(15,15,24,0.95), rgba(5,5,8,0.95));
+}
+.cta-card {
+  background: var(--bg3);
+  border: 1px solid rgba(200,241,53,0.18);
+  border-radius: var(--radius-xl);
+  padding: 44px 40px;
+  box-shadow: 0 24px 90px rgba(200,241,53,0.12);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.cta-text {
+  max-width: 720px;
+}
+.cta-title {
+  font-family: var(--font-display);
+  font-size: clamp(34px, 4vw, 48px);
+  font-weight: 800;
+  margin-bottom: 14px;
+}
+.cta-desc {
+  font-size: 17px;
+  color: var(--muted);
+  line-height: 1.8;
+}
+.cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+.cta-glow {
+  box-shadow: 0 24px 80px rgba(200,241,53,0.2);
+}
+.contact-item-value a {
+  color: var(--white);
+  transition: var(--transition);
+}
+.contact-item-value a:hover {
+  color: var(--lime);
+}
+.form-error {
+  display: none;
+  font-size: 13px;
+  color: #ff7777;
+  margin-top: 6px;
+}
+.form-input.invalid, .form-select.invalid, .form-textarea.invalid {
+  border-color: #ff4444;
+}
+.footer-policy-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.footer-policy-links a {
+  color: var(--muted);
+  font-size: 13px;
+}
+.footer-policy-links a:hover {
+  color: var(--lime);
+}
+@media (max-width: 1024px) {
+  .process-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .trust-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 768px) {
+  .hero-badges { justify-content: flex-start; }
+  .cta-card { padding: 32px 24px; }
+  .cta-actions { width: 100%; justify-content: center; }
+  .cta-card { text-align: center; }
+  .cta-text { width: 100%; }
+  .cta-card { flex-direction: column; align-items: stretch; }
+  .cta-actions .btn-primary, .cta-actions .btn-ghost { width: 100%; }
+  .process-grid, .trust-grid { grid-template-columns: 1fr; }
+  .project-card { min-height: auto; }
+  .project-body { align-items: stretch; }
+}
+@media (max-width: 480px) {
+  .hero-badge-pill { width: 100%; justify-content: center; }
+  .contact-form-wrap { padding: 24px; }
+}
+
 .project-card > * {
   position: relative;
   z-index: 2;
@@ -1544,6 +1783,12 @@ body::before {
         </a>
         <a href="https://wa.me/918431166905?text=Hello%20Nexlix%20Digital%2C%0AI%20want%20a%20website%20for%20my%20business." target="_blank" rel="noopener" class="btn-ghost">Chat On WhatsApp</a>
       </div>
+      <div class="hero-badges">
+        <span class="hero-badge-pill">✓ Mobile Responsive</span>
+        <span class="hero-badge-pill">✓ SEO Optimized</span>
+        <span class="hero-badge-pill">✓ Fast Loading</span>
+        <span class="hero-badge-pill">✓ WhatsApp Integration</span>
+      </div>
       <div class="hero-stats">
         <div class="hero-stat">
           <div class="hero-stat-num" data-count="25">0</div>
@@ -1674,6 +1919,121 @@ body::before {
         </div>
       </div>
 
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     HOW WE WORK
+     ============================================================ -->
+<section class="section process" id="process">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">How We Work</div>
+      <h2 class="section-title">A simple process that takes your business from idea to launch.</h2>
+    </div>
+    <div class="process-grid">
+      <div class="process-card reveal reveal-delay-1">
+        <div class="process-icon">📞</div>
+        <div class="process-title">Discovery Call</div>
+        <div class="process-text">We understand your business goals and requirements.</div>
+      </div>
+      <div class="process-card reveal reveal-delay-2">
+        <div class="process-icon">🧭</div>
+        <div class="process-title">Design & Strategy</div>
+        <div class="process-text">We create a modern and conversion-focused design.</div>
+      </div>
+      <div class="process-card reveal reveal-delay-3">
+        <div class="process-icon">⚡</div>
+        <div class="process-title">Development</div>
+        <div class="process-text">Fast, responsive and SEO-friendly development.</div>
+      </div>
+      <div class="process-card reveal reveal-delay-4">
+        <div class="process-icon">🚀</div>
+        <div class="process-title">Launch & Support</div>
+        <div class="process-text">Deployment, optimization and ongoing support.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     TRUST SECTION
+     ============================================================ -->
+<section class="section trust" id="trust">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">Why Businesses Choose Nexlix Digital</div>
+      <h2 class="section-title">Trusted features for smooth launches and strong growth.</h2>
+    </div>
+    <div class="trust-grid">
+      <div class="trust-card reveal reveal-delay-1">
+        <div class="trust-icon">✓</div>
+        <div>
+          <div class="trust-title">Premium Design</div>
+        </div>
+      </div>
+      <div class="trust-card reveal reveal-delay-2">
+        <div class="trust-icon">📱</div>
+        <div>
+          <div class="trust-title">Mobile Responsive</div>
+        </div>
+      </div>
+      <div class="trust-card reveal reveal-delay-3">
+        <div class="trust-icon">⚡</div>
+        <div>
+          <div class="trust-title">Fast Loading</div>
+        </div>
+      </div>
+      <div class="trust-card reveal reveal-delay-4">
+        <div class="trust-icon">🔎</div>
+        <div>
+          <div class="trust-title">SEO Friendly</div>
+        </div>
+      </div>
+      <div class="trust-card reveal reveal-delay-1">
+        <div class="trust-icon">💬</div>
+        <div>
+          <div class="trust-title">WhatsApp Integration</div>
+        </div>
+      </div>
+      <div class="trust-card reveal reveal-delay-2">
+        <div class="trust-icon">🎯</div>
+        <div>
+          <div class="trust-title">Conversion Focused</div>
+        </div>
+      </div>
+      <div class="trust-card reveal reveal-delay-3">
+        <div class="trust-icon">💰</div>
+        <div>
+          <div class="trust-title">Affordable Pricing</div>
+        </div>
+      </div>
+      <div class="trust-card reveal reveal-delay-4">
+        <div class="trust-icon">🛡️</div>
+        <div>
+          <div class="trust-title">Ongoing Support</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CTA SECTION
+     ============================================================ -->
+<section class="section cta-section">
+  <div class="container">
+    <div class="cta-card reveal">
+      <div class="cta-text">
+        <div class="section-label">Ready To Grow Your Business Online?</div>
+        <div class="cta-title">Let's create a website that attracts customers, builds trust and generates results.</div>
+        <p class="cta-desc">Professional websites built for local brands that want stronger conversions, better visibility, and consistent customer engagement.</p>
+      </div>
+      <div class="cta-actions">
+        <a href="#contact" class="btn-primary cta-glow">Get Free Quote</a>
+        <a href="https://wa.me/918431166905?text=Hello%20Nexlix%20Digital%2C%0AI%20want%20a%20website%20for%20my%20business." target="_blank" rel="noopener" class="btn-ghost">Chat On WhatsApp</a>
+      </div>
     </div>
   </div>
 </section>
@@ -2053,14 +2413,14 @@ body::before {
             <div class="contact-item-icon">📧</div>
             <div>
               <div class="contact-item-label">Email</div>
-              <div class="contact-item-value">hello@nexlixdigital.com</div>
+              <div class="contact-item-value"><a href="mailto:hello@nexlixdigital.com">hello@nexlixdigital.com</a></div>
             </div>
           </div>
           <div class="contact-item">
             <div class="contact-item-icon">💬</div>
             <div>
               <div class="contact-item-label">WhatsApp</div>
-              <div class="contact-item-value">8431166905</div>
+              <div class="contact-item-value"><a href="https://wa.me/918431166905?text=Hello%20Nexlix%20Digital%2C%0AI%20want%20a%20website%20for%20my%20business." target="_blank" rel="noopener">+91 84311 66905</a></div>
             </div>
           </div>
           <div class="contact-item">
@@ -2090,20 +2450,20 @@ body::before {
           <div class="form-row">
             <div class="form-group">
               <label class="form-label">Your Name</label>
-              <input type="text" class="form-input" placeholder="John Doe" id="fname">
+              <input type="text" class="form-input" placeholder="John Doe" id="fname" aria-required="true" required>
             </div>
             <div class="form-group">
               <label class="form-label">Email Address</label>
-              <input type="email" class="form-input" placeholder="john@example.com" id="femail">
+              <input type="email" class="form-input" placeholder="john@example.com" id="femail" aria-required="true" required>
             </div>
           </div>
           <div class="form-group">
             <label class="form-label">Phone Number</label>
-            <input type="tel" class="form-input" placeholder="+91 98765 43210" id="fphone">
+            <input type="tel" class="form-input" placeholder="+91 98765 43210" id="fphone" aria-required="true" required>
           </div>
           <div class="form-group">
             <label class="form-label">Service Needed</label>
-            <select class="form-select form-input" id="fservice">
+            <select class="form-select form-input" id="fservice" aria-required="true" required>
               <option value="" disabled selected>Select a service…</option>
               <option>Web Design & UI/UX</option>
               <option>Web Development</option>
@@ -2115,9 +2475,10 @@ body::before {
           </div>
           <div class="form-group">
             <label class="form-label">Tell Us About Your Project</label>
-            <textarea class="form-textarea" placeholder="Describe your project, goals, timeline…" id="fmessage"></textarea>
+            <textarea class="form-textarea" placeholder="Describe your project, goals, timeline…" id="fmessage" aria-required="true"></textarea>
           </div>
-          <button class="form-submit" onclick="handleSubmit()">
+          <div class="form-error" id="formError">Please complete all fields before sending.</div>
+          <button type="button" class="form-submit" onclick="handleSubmit()">
             Send Message
             <span>→</span>
           </button>
@@ -2182,10 +2543,16 @@ body::before {
       </div>
     </div>
     <div class="footer-bottom">
-      <div class="footer-copy">© 2025 <span>Nexlix Digital</span>. All rights reserved.</div>
+      <div class="footer-copy">© 2026 <span>Nexlix Digital</span>. All rights reserved.</div>
+      <div class="footer-policy-links">
+        <a href="#privacy" aria-label="Privacy Policy">Privacy Policy</a>
+        <a href="#terms" aria-label="Terms of Service">Terms of Service</a>
+      </div>
       <div class="footer-tagline">Crafted with ✦ by Nexlix Digital</div>
     </div>
   </div>
+  <div id="privacy"></div>
+  <div id="terms"></div>
 </footer>
 
 <!-- ============================================================
@@ -2228,27 +2595,27 @@ function closeMobile() {
 }
 
 /* ---- Text cycler ---- */
-const words = ['Websites', 'Brands', 'Stores', 'Experiences'];
+const words = ['Websites', 'Stores', 'Brands', 'Experiences'];
 let idx = 0;
 const cyclerEl = document.getElementById('cycler');
 
 function animateCycler() {
-  cyclerEl.style.transition = 'opacity 0.35s ease, transform 0.35s ease';
+  cyclerEl.style.transition = 'opacity 0.45s ease, transform 0.45s ease';
   cyclerEl.style.opacity = '0';
-  cyclerEl.style.transform = 'translateY(-16px)';
+  cyclerEl.style.transform = 'translateY(-12px)';
   setTimeout(() => {
     idx = (idx + 1) % words.length;
     cyclerEl.textContent = words[idx];
-    cyclerEl.style.transform = 'translateY(16px)';
     cyclerEl.style.transition = 'none';
+    cyclerEl.style.transform = 'translateY(12px)';
     setTimeout(() => {
-      cyclerEl.style.transition = 'opacity 0.35s ease, transform 0.35s ease';
+      cyclerEl.style.transition = 'opacity 0.45s ease, transform 0.45s ease';
       cyclerEl.style.opacity = '1';
       cyclerEl.style.transform = 'translateY(0)';
     }, 30);
   }, 380);
 }
-setInterval(animateCycler, 2400);
+setInterval(animateCycler, 2600);
 
 /* ---- Counter animation ---- */
 function animateCounter(el) {
@@ -2293,13 +2660,30 @@ if (counters.length) counterObserver.observe(counters[0]);
 
 /* ---- Form submit ---- */
 function handleSubmit() {
-  const name = document.getElementById('fname').value.trim();
-  const email = document.getElementById('femail').value.trim();
-  if (!name || !email) {
-    document.getElementById('fname').style.borderColor = name ? '' : '#ff4444';
-    document.getElementById('femail').style.borderColor = email ? '' : '#ff4444';
+  const fields = [
+    { id: 'fname', label: 'Your Name' },
+    { id: 'femail', label: 'Email Address' },
+    { id: 'fphone', label: 'Phone Number' },
+    { id: 'fservice', label: 'Service Needed' },
+    { id: 'fmessage', label: 'Project Details' }
+  ];
+
+  let valid = true;
+  fields.forEach(field => {
+    const input = document.getElementById(field.id);
+    const value = input.value.trim();
+    const isValid = value !== '' && (field.id !== 'femail' || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value));
+    input.classList.toggle('invalid', !isValid);
+    if (!isValid) valid = false;
+  });
+
+  const errorEl = document.getElementById('formError');
+  if (!valid) {
+    errorEl.style.display = 'block';
     return;
   }
+
+  errorEl.style.display = 'none';
   document.getElementById('contactForm').style.display = 'none';
   document.getElementById('formSuccess').classList.add('show');
 }
