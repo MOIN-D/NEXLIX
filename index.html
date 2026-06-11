@@ -397,7 +397,6 @@ ul { list-style: none; }
   gap: 40px;
   animation: fade-up 0.8s 0.4s ease both;
 }
-.hero-stat {}
 .hero-stat-num {
   font-family: var(--font-display);
   font-size: 32px;
@@ -547,9 +546,6 @@ ul { list-style: none; }
   gap: 16px;
   flex: 1;
   min-height: 150px;
-}
-.project-body .project-info {
-  flex: 1;
 }
 .project-link-btn {
   width: auto;
@@ -854,7 +850,6 @@ ul { list-style: none; }
   justify-content: space-between;
   gap: 16px;
 }
-.project-info {}
 .project-tag {
   font-size: 11px;
   font-weight: 600;
@@ -1389,7 +1384,6 @@ ul { list-style: none; }
   gap: 80px;
   align-items: start;
 }
-.contact-info {}
 .contact-info .section-title { margin-bottom: 24px; }
 .contact-info .section-sub { margin-bottom: 48px; }
 .contact-items { display: flex; flex-direction: column; gap: 20px; }
@@ -2722,15 +2716,6 @@ function handleSubmit() {
       window.location.href = whatsappUrl;
     }
   }, 300);
-}
-  if (!valid) {
-    errorEl.style.display = 'block';
-    return;
-  }
-
-  errorEl.style.display = 'none';
-  document.getElementById('contactForm').style.display = 'none';
-  document.getElementById('formSuccess').classList.add('show');
 }
 
 /* ---- Smooth nav links ---- */
