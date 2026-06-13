@@ -655,6 +655,11 @@ ul { list-style: none; }
 }
 .project-card:hover::before {
   box-shadow: inset 0 0 0 1px rgba(200,241,53,0.12); }
+/* Premium entrance for select project cards */
+.project-card.premium.reveal.visible {
+  transform: translateY(0) scale(1.02);
+  box-shadow: 0 48px 140px rgba(200,241,53,0.10);
+}
 .project-body {
   padding: 24px 24px 20px;
   display: flex;
@@ -2067,6 +2072,23 @@ body::before {
             <div class="project-desc">Luxury fashion website with modern collections, premium branding and responsive design.</div>
           </div>
           <a href="https://fashionqq.netlify.app" target="_blank" rel="noopener" class="project-link-btn" title="View Fashion Q Live Demo">🚀 View Live Demo <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+
+      <!-- Real Estate Agency Website -->
+      <div class="project-card premium reveal reveal-delay-4">
+        <a class="project-card-overlay" href="https://sathishrealestate.netlify.app" target="_blank" rel="noopener" aria-label="Open Real Estate Agency Live Demo"></a>
+        <div class="project-preview">
+          <div class="project-preview-overlay"></div>
+          <img class="project-preview-img" src="https://image.thum.io/get/width/1200/https://sathishrealestate.netlify.app" srcset="https://image.thum.io/get/width/800/https://sathishrealestate.netlify.app 800w, https://image.thum.io/get/width/1200/https://sathishrealestate.netlify.app 1200w" sizes="(max-width: 768px) 100vw, 600px" loading="lazy" decoding="async" alt="Real Estate Agency website screenshot" onload="this.closest('.project-preview').classList.add('loaded')">
+        </div>
+        <div class="project-body">
+          <div class="project-info">
+            <div class="project-tag">Real Estate</div>
+            <div class="project-name">Real Estate Agency Website</div>
+            <div class="project-desc">Modern real estate website designed to showcase properties, generate leads, and increase customer enquiries.</div>
+          </div>
+          <a href="https://sathishrealestate.netlify.app" target="_blank" rel="noopener" class="project-link-btn" title="View Real Estate Live Demo">Live Demo <span aria-hidden="true">↗</span></a>
         </div>
       </div>
 
